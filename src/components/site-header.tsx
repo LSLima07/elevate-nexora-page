@@ -27,7 +27,9 @@ export function SiteHeader() {
         </nav>
 
         <a
-          href="#contato"
+          href={`https://wa.me/5515998130853?text=${encodeURIComponent("Olá! Acessei o site da NEXORA e gostaria de entender como vocês podem ajudar a posicionar digitalmente a minha empresa.")}`}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[0_0_0_1px_rgba(0,245,160,0.25)] transition-all hover:shadow-[0_0_28px_-4px_var(--neon-green)] active:scale-[0.98]"
         >
           Falar com Consultor

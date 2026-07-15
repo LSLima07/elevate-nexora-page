@@ -52,7 +52,9 @@ export function Hero() {
 
         <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row">
           <a
-            href="#contato"
+            href={`https://wa.me/5515998130853?text=${encodeURIComponent("Olá! Gostaria de agendar o diagnóstico gratuito para a minha empresa com os especialistas da NEXORA.")}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground shadow-[0_0_0_1px_rgba(0,245,160,0.35)] transition-all hover:shadow-[0_0_40px_-6px_var(--neon-green)] active:scale-[0.98]"
           >
             Agendar diagnóstico gratuito
