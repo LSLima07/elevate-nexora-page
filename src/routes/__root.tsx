@@ -77,21 +77,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "NEXORA — Soluções digitais para PMEs" },
+      { title: "NEXORA | Desenvolvimento de Sites, Landing Pages e SEO para PMEs" },
       {
         name: "description",
         content:
-          "Agência NEXORA: sites rápidos e otimizados que colocam negócios locais no topo do Google.",
+          "Criamos sites rápidos, modernos e otimizados para colocar o seu negócio local no topo do Google. Atraia mais clientes pelo WhatsApp!",
+      },
+      {
+        name: "keywords",
+        content:
+          "criacao de sites, landing page, seo local, colocar empresa no google, agencia digital, nexora, sites para empresas",
       },
       { name: "author", content: "NEXORA" },
-      { property: "og:title", content: "NEXORA — Soluções digitais para PMEs" },
+      { property: "og:title", content: "NEXORA | Soluções Digitais para Pequenos e Médios Negócios" },
       {
         property: "og:description",
         content:
-          "Sites rápidos e otimizados que colocam negócios locais no topo do Google.",
+          "Transformamos confiança em crescimento. Sites de alta conversão, presença no Google e automações para o seu negócio vender mais.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "NEXORA | Soluções Digitais para Pequenos e Médios Negócios" },
+      {
+        name: "twitter:description",
+        content:
+          "Transformamos confiança em crescimento. Sites de alta conversão, presença no Google e automações para o seu negócio vender mais.",
+      },
     ],
     links: [
       {
