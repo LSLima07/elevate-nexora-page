@@ -1,4 +1,5 @@
 import { Rocket, Search, MessageCircle, Sparkles, type LucideIcon } from "lucide-react";
+import { useReveal } from "@/hooks/use-reveal";
 
 type Service = {
   icon: LucideIcon;
@@ -74,11 +75,33 @@ export function Services() {
         </div>
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
-          {services.map(({ icon: Icon, title, description }) => (
-            <article
-              key={title}
-              className="group relative rounded-2xl border border-white/10 bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_20px_60px_-30px_rgba(0,229,255,0.35)] md:p-10"
-            >
+          {services.map(({ icon: Icon, title, description }, i) => (
+            <ServiceCard key={title} Icon={Icon} title={title} description={description} index={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ServiceCard({
+  Icon,
+  title,
+  description,
+  index,
+}: {
+  Icon: LucideIcon;
+  title: string;
+  description: string;
+  index: number;
+}) {
+  const { ref, visible } = useReveal<HTMLElement>();
+  return (
+    <article
+      ref={ref}
+      className={`reveal ${visible ? "reveal-in" : ""} group relative rounded-2xl border border-white/10 bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_20px_60px_-30px_rgba(0,229,255,0.35)] md:p-10`}
+      style={{ transitionDelay: visible ? `${index * 120}ms` : "0ms" }}
+    >
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -110,9 +133,5 @@ export function Services() {
                 </p>
               </div>
             </article>
-          ))}
-        </div>
-      </div>
-    </section>
   );
 }
