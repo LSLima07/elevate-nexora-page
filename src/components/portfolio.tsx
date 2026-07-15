@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { useReveal } from "@/hooks/use-reveal";
 
 type Project = {
   niche: string;
@@ -73,17 +74,38 @@ export function Portfolio() {
         </div>
 
         <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => {
+          {projects.map((project, index) => {
             const accentColor =
               project.nicheAccent === "cyan"
                 ? "var(--cyan)"
                 : "var(--electric-purple)";
 
             return (
-              <article
-                key={project.name}
-                className="group relative flex flex-col rounded-2xl border border-[var(--midnight)] bg-[var(--deep-bg)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_24px_70px_-30px_rgba(122,60,255,0.35)]"
-              >
+              <ProjectCard key={project.name} project={project} accentColor={accentColor} index={index} />
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProjectCard({
+  project,
+  accentColor,
+  index,
+}: {
+  project: Project;
+  accentColor: string;
+  index: number;
+}) {
+  const { ref, visible } = useReveal<HTMLElement>();
+  return (
+    <article
+      ref={ref}
+      className={`reveal ${visible ? "reveal-in" : ""} group relative flex flex-col rounded-2xl border border-[var(--midnight)] bg-[var(--deep-bg)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_24px_70px_-30px_rgba(122,60,255,0.35)]`}
+      style={{ transitionDelay: visible ? `${index * 140}ms` : "0ms" }}
+    >
                 <div
                   className="inline-flex w-fit items-center rounded-full border px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em]"
                   style={{
@@ -130,11 +152,6 @@ export function Portfolio() {
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </a>
                 </div>
-              </article>
-            );
-          })}
-        </div>
-      </div>
-    </section>
+    </article>
   );
 }
