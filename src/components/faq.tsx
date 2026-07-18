@@ -75,7 +75,7 @@ function FaqItem({
           id={panelId}
           role="region"
           aria-labelledby={buttonId}
-          hidden={!open}
+          aria-hidden={!open}
           className={`grid transition-all duration-300 ease-out ${
             open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
           }`}
