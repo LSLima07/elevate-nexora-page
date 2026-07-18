@@ -23,6 +23,31 @@ export const Route = createFileRoute("/")({
       { name: "twitter:image:alt", content: "NEXORA — Transformamos confiança em crescimento" },
     ],
     links: [{ rel: "canonical", href: SITE_URL + "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "NEXORA",
+          description:
+            "Agência de desenvolvimento de sites de alta conversão, landing pages e SEO para pequenos e médios negócios locais.",
+          url: SITE_URL,
+          image: OG_IMAGE,
+          logo: `${SITE_URL}/favicon.png`,
+          areaServed: "Região Local / Itapetininga e arredores",
+          telephone: "+55 15 99813-0853",
+          contactPoint: {
+            "@type": "ContactPoint",
+            contactType: "customer service",
+            telephone: "+55 15 99813-0853",
+            availableLanguage: ["Portuguese"],
+            contactOption: "TollFree",
+          },
+          sameAs: [`https://wa.me/5515998130853`],
+        }),
+      },
+    ],
   }),
 });
 
