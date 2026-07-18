@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/site-header";
 import { Hero } from "@/components/hero";
 import { Services } from "@/components/services";
 import { Portfolio } from "@/components/portfolio";
+import { Faq } from "@/components/faq";
 import { SiteFooter } from "@/components/site-footer";
 
 const SITE_URL = "https://id-preview--9c6b63c8-3813-460c-aece-353c4494c55b.lovable.app";
@@ -59,6 +60,7 @@ function Index() {
         <Hero />
         <Services />
         <Portfolio />
+        <Faq />
       </main>
       <SiteFooter />
     </div>
