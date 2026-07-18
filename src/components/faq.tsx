@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { useReveal, revealClass } from "@/hooks/use-reveal";
 
-const faqs = [
+export const faqs = [
   {
     q: "Quanto tempo demora para o meu site ficar pronto?",
     a: "O prazo médio de desenvolvimento varia entre 7 a 15 dias úteis, dependendo da complexidade do projeto e do envio do conteúdo por parte do cliente.",
@@ -35,6 +35,8 @@ function FaqItem({
   onToggle: () => void;
 }) {
   const { ref, visible } = useReveal<HTMLDivElement>();
+  const panelId = useId();
+  const buttonId = useId();
   return (
     <div
       ref={ref}
@@ -49,9 +51,11 @@ function FaqItem({
         }`}
       >
         <button
+          id={buttonId}
           type="button"
           onClick={onToggle}
           aria-expanded={open}
+          aria-controls={panelId}
           className="flex w-full items-center justify-between gap-6 px-6 py-5 text-left"
         >
           <span
@@ -68,6 +72,10 @@ function FaqItem({
           />
         </button>
         <div
+          id={panelId}
+          role="region"
+          aria-labelledby={buttonId}
+          hidden={!open}
           className={`grid transition-all duration-300 ease-out ${
             open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
           }`}
