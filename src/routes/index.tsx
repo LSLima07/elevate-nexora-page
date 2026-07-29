@@ -5,6 +5,7 @@ import { Services } from "@/components/services";
 import { Portfolio } from "@/components/portfolio";
 import { Faq, faqs } from "@/components/faq";
 import { SiteFooter } from "@/components/site-footer";
+import { WhatsappFloat } from "@/components/whatsapp-float";
 
 const SITE_URL = "https://id-preview--9c6b63c8-3813-460c-aece-353c4494c55b.lovable.app";
 const OG_IMAGE = `${SITE_URL}/og-image.png`;
@@ -30,18 +31,19 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          name: "NEXORA",
+          name: "NEXORA - Agência de Desenvolvimento Web e SEO Local",
           description:
-            "Agência de desenvolvimento de sites de alta conversão, landing pages e SEO para pequenos e médios negócios locais.",
+            "Criação de sites de alta conversão, landing pages e presença no Google para comércios e empresas locais.",
           url: SITE_URL,
           image: OG_IMAGE,
           logo: `${SITE_URL}/favicon.png`,
-          areaServed: "Região Local / Itapetininga e arredores",
-          telephone: "+55 15 99813-0853",
+          areaServed: "Itapetininga, Angatuba e Região (São Paulo)",
+          telephone: "+5515998130853",
+          priceRange: "$$",
           contactPoint: {
             "@type": "ContactPoint",
             contactType: "customer service",
-            telephone: "+55 15 99813-0853",
+            telephone: "+5515998130853",
             availableLanguage: ["Portuguese"],
             contactOption: "TollFree",
           },
@@ -78,6 +80,7 @@ function Index() {
         <Faq />
       </main>
       <SiteFooter />
+      <WhatsappFloat />
     </div>
   );
 }
