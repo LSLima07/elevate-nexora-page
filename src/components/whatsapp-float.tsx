@@ -15,7 +15,7 @@ export function WhatsappFloat() {
     >
       <span
         aria-hidden
-        className="pulse absolute inset-0 rounded-full bg-primary/40"
+        className="absolute inset-0 animate-ping rounded-full bg-primary/30 [animation-duration:2.5s]"
       />
       <MessageCircle className="relative h-6 w-6" />
     </a>
