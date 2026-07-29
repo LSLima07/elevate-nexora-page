@@ -8,7 +8,7 @@ const MAP_SRC =
   "https://www.google.com/maps?q=Itapetininga,%20SP,%20Brasil&z=9&output=embed";
 
 export function ServiceArea() {
-  const { ref, isVisible } = useReveal<HTMLDivElement>();
+  const { ref, visible } = useReveal<HTMLDivElement>();
 
   return (
     <section
@@ -20,7 +20,7 @@ export function ServiceArea() {
         <div
           ref={ref}
           className={`grid gap-10 rounded-3xl border border-white/10 bg-[var(--midnight)]/60 p-8 transition-all duration-700 md:grid-cols-2 md:p-10 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+            visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
           }`}
         >
           <div className="flex flex-col justify-center">
