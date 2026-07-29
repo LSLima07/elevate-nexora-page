@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { WHATSAPP_QUOTE_URL } from "@/lib/whatsapp";
 
 export function SiteHeader() {
   return (
@@ -24,10 +25,18 @@ export function SiteHeader() {
           >
             Portfólio
           </a>
+          <a
+            href={WHATSAPP_QUOTE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Contato
+          </a>
         </nav>
 
         <a
-          href={`https://wa.me/5515998130853?text=${encodeURIComponent("Olá! Acessei o site da NEXORA e gostaria de entender como vocês podem ajudar a posicionar digitalmente a minha empresa.")}`}
+          href={WHATSAPP_QUOTE_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[0_0_0_1px_rgba(0,245,160,0.25)] transition-all hover:shadow-[0_0_28px_-4px_var(--neon-green)] active:scale-[0.98]"
