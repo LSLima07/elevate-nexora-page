@@ -1,3 +1,4 @@
+import { WHATSAPP_QUOTE_URL } from "@/lib/whatsapp";
 import { ArrowRight } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
 
