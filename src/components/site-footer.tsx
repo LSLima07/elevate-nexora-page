@@ -1,4 +1,5 @@
 import { Instagram, Linkedin, MessageCircle, Mail } from "lucide-react";
+import { WHATSAPP_QUOTE_URL } from "@/lib/whatsapp";
 
 const quickLinks = [
   { label: "Início", href: "#" },
@@ -9,7 +10,7 @@ const quickLinks = [
 const socials = [
   { label: "Instagram", href: "#", icon: Instagram },
   { label: "LinkedIn", href: "#", icon: Linkedin },
-  { label: "WhatsApp", href: "#", icon: MessageCircle },
+  { label: "WhatsApp", href: WHATSAPP_QUOTE_URL, icon: MessageCircle },
 ];
 
 export function SiteFooter() {
@@ -65,12 +66,24 @@ export function SiteFooter() {
               <Mail className="h-4 w-4 text-cyan" />
               contato@nexora.com.br
             </a>
+            <div>
+              <a
+                href={WHATSAPP_QUOTE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:shadow-[0_0_28px_-4px_var(--neon-green)] active:scale-[0.98]"
+              >
+                Solicitar Orçamento
+              </a>
+            </div>
             <div className="flex items-center gap-3 pt-1">
               {socials.map(({ label, href, icon: Icon }) => (
                 <a
                   key={label}
                   href={href}
                   aria-label={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.02] text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-cyan/40 hover:text-cyan hover:shadow-[0_0_24px_-6px_var(--cyan)]"
                 >
                   <Icon className="h-4 w-4" />
