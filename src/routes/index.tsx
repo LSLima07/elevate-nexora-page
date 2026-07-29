@@ -4,6 +4,7 @@ import { Hero } from "@/components/hero";
 import { Services } from "@/components/services";
 import { Portfolio } from "@/components/portfolio";
 import { Faq, faqs } from "@/components/faq";
+import { ServiceArea } from "@/components/service-area";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsappFloat } from "@/components/whatsapp-float";
 
@@ -72,12 +73,19 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-primary focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-cyan"
+      >
+        Pular para o conteúdo principal
+      </a>
       <SiteHeader />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Hero />
         <Services />
         <Portfolio />
         <Faq />
+        <ServiceArea />
       </main>
       <SiteFooter />
       <WhatsappFloat />
