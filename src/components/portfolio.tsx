@@ -145,7 +145,9 @@ function ProjectCard({
 
                 <div className="mt-7 border-t border-white/5 pt-5">
                   <a
-                    href="#"
+                    href={WHATSAPP_QUOTE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--cyan)] transition-colors hover:text-[var(--neon-green)]"
                   >
                     Conhecer Solução
