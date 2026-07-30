@@ -44,18 +44,33 @@ export function QuoteForm() {
   const { ref, visible } = useReveal<HTMLDivElement>();
   const [errors, setErrors] = useState<FieldErrors>({});
   const [sent, setSent] = useState(false);
+  const [consentError, setConsentError] = useState<string | null>(null);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const formData = new FormData(form);
+
+    // Honeypot: se preenchido, é bot — cancela silenciosamente.
+    if (String(formData.get("company") ?? "").trim() !== "") {
+      form.reset();
+      return;
+    }
+
+    const consent = formData.get("consent") === "on";
+    const data = Object.fromEntries(formData.entries());
     const parsed = quoteSchema.safeParse(data);
 
-    if (!parsed.success) {
+    if (!consent) setConsentError("É necessário concordar para continuar.");
+    else setConsentError(null);
+
+    if (!parsed.success || !consent) {
       const next: FieldErrors = {};
-      for (const issue of parsed.error.issues) {
-        const key = issue.path[0] as keyof FieldErrors;
-        if (!next[key]) next[key] = issue.message;
+      if (!parsed.success) {
+        for (const issue of parsed.error.issues) {
+          const key = issue.path[0] as keyof FieldErrors;
+          if (!next[key]) next[key] = issue.message;
+        }
       }
       setErrors(next);
       return;
@@ -64,15 +79,12 @@ export function QuoteForm() {
     setErrors({});
     const { name, email, phone, service, details } = parsed.data;
     const message = [
-      "Olá! Gostaria de solicitar um orçamento gratuito na NEXORA.",
+      `Olá! Meu nome é ${name}. Tenho interesse no serviço: ${service}.`,
       "",
-      `Nome: ${name}`,
-      `E-mail: ${email}`,
-      `WhatsApp: ${phone}`,
-      `Serviço: ${service}`,
-      details ? `Detalhes: ${details}` : null,
+      `E-mail: ${email} | Tel: ${phone}`,
+      "",
+      `Detalhes do projeto: ${details && details.length > 0 ? details : "—"}`,
     ]
-      .filter(Boolean)
       .join("\n");
 
     window.open(buildWhatsappUrl(message), "_blank", "noopener,noreferrer");
@@ -214,6 +226,42 @@ export function QuoteForm() {
                     aria-invalid={!!errors.details}
                   />
                 </Field>
+
+                {/* Honeypot anti-spam — invisível para usuários reais */}
+                <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+                  <label htmlFor="company">Empresa</label>
+                  <input
+                    id="company"
+                    name="company"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label
+                    htmlFor="consent"
+                    className="flex cursor-pointer items-start gap-3 text-sm text-muted-foreground"
+                  >
+                    <input
+                      id="consent"
+                      name="consent"
+                      type="checkbox"
+                      className="mt-0.5 h-4 w-4 shrink-0 accent-[var(--neon-green)]"
+                      aria-invalid={!!consentError}
+                    />
+                    <span>
+                      Concordo em compartilhar meus dados para contato comercial da
+                      NEXORA.
+                    </span>
+                  </label>
+                  {consentError ? (
+                    <p role="alert" className="text-xs text-[#FF6B6B]">
+                      {consentError}
+                    </p>
+                  ) : null}
+                </div>
 
                 <button
                   type="submit"
