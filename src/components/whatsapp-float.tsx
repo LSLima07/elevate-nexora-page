@@ -1,13 +1,10 @@
 import { MessageCircle } from "lucide-react";
-
-const WHATSAPP_URL = `https://wa.me/5515998130853?text=${encodeURIComponent(
-  "Olá! Estava navegando no site da NEXORA e gostaria de tirar uma dúvida sobre os serviços de vocês."
-)}`;
+import { WHATSAPP_SUPPORT_URL } from "@/lib/whatsapp";
 
 export function WhatsappFloat() {
   return (
     <a
-      href={WHATSAPP_URL}
+      href={WHATSAPP_SUPPORT_URL}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar com a NEXORA no WhatsApp"
