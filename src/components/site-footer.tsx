@@ -1,4 +1,5 @@
-import { Instagram, Linkedin, MessageCircle, Mail } from "lucide-react";
+import { useState } from "react";
+import { Instagram, Linkedin, MessageCircle, Mail, X } from "lucide-react";
 import { WHATSAPP_QUOTE_URL } from "@/lib/whatsapp";
 
 const quickLinks = [
@@ -14,6 +15,7 @@ const socials = [
 ];
 
 export function SiteFooter() {
+  const [privacyOpen, setPrivacyOpen] = useState(false);
   return (
     <footer
       id="contato"
