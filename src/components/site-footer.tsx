@@ -106,15 +106,73 @@ export function SiteFooter() {
             >
               Termos de Uso
             </a>
-            <a
-              href="#"
-              className="text-xs text-[#9AA5B1] transition-colors hover:text-foreground"
+            <button
+              type="button"
+              onClick={() => setPrivacyOpen(true)}
+              className="text-xs text-[#9AA5B1] transition-colors hover:text-cyan"
             >
-              Políticas de Privacidade
-            </a>
+              Política de Privacidade
+            </button>
           </div>
         </div>
       </div>
+
+      {privacyOpen ? (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="privacy-title"
+          className="fixed inset-0 z-[60] flex items-center justify-center p-4"
+        >
+          <div
+            className="absolute inset-0 bg-[#070A14]/80 backdrop-blur-sm"
+            onClick={() => setPrivacyOpen(false)}
+          />
+          <div className="relative max-h-[80vh] w-full max-w-lg overflow-y-auto rounded-3xl border border-white/10 bg-[var(--midnight)] p-7 shadow-[0_0_60px_-20px_var(--cyan)]">
+            <button
+              type="button"
+              onClick={() => setPrivacyOpen(false)}
+              aria-label="Fechar"
+              className="absolute right-5 top-5 text-muted-foreground transition-colors hover:text-cyan"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <h2
+              id="privacy-title"
+              className="font-display text-xl font-bold text-foreground"
+            >
+              Política de Privacidade
+            </h2>
+            <div className="mt-4 space-y-4 text-sm leading-relaxed text-muted-foreground">
+              <p>
+                A NEXORA respeita a sua privacidade e trata os dados pessoais de
+                acordo com a Lei Geral de Proteção de Dados (LGPD — Lei nº
+                13.709/2018).
+              </p>
+              <p>
+                <strong className="text-foreground/90">Dados coletados:</strong>{" "}
+                nome, e-mail, telefone/WhatsApp e informações do projeto enviadas
+                voluntariamente pelo formulário de orçamento.
+              </p>
+              <p>
+                <strong className="text-foreground/90">Finalidade:</strong> os
+                dados são usados exclusivamente para contato comercial, envio de
+                propostas e atendimento. Não vendemos nem compartilhamos suas
+                informações com terceiros para fins publicitários.
+              </p>
+              <p>
+                <strong className="text-foreground/90">Seus direitos:</strong>{" "}
+                você pode solicitar a qualquer momento o acesso, a correção ou a
+                exclusão dos seus dados pelo e-mail{" "}
+                <a href="mailto:contato@nexora.com.br" className="text-cyan">
+                  contato@nexora.com.br
+                </a>
+                .
+              </p>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </footer>
   );
 }
