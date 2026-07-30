@@ -5,6 +5,7 @@ import { Services } from "@/components/services";
 import { Portfolio } from "@/components/portfolio";
 import { Faq, faqs } from "@/components/faq";
 import { ServiceArea } from "@/components/service-area";
+import { QuoteForm } from "@/components/quote-form";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsappFloat } from "@/components/whatsapp-float";
 
@@ -86,6 +87,7 @@ function Index() {
         <Portfolio />
         <Faq />
         <ServiceArea />
+        <QuoteForm />
       </main>
       <SiteFooter />
       <WhatsappFloat />
