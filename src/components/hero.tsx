@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { WHATSAPP_DIAGNOSIS_URL } from "@/lib/whatsapp";
 
 export function Hero() {
   return (
