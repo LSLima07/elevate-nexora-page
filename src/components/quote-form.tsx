@@ -227,6 +227,42 @@ export function QuoteForm() {
                   />
                 </Field>
 
+                {/* Honeypot anti-spam — invisível para usuários reais */}
+                <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+                  <label htmlFor="company">Empresa</label>
+                  <input
+                    id="company"
+                    name="company"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label
+                    htmlFor="consent"
+                    className="flex cursor-pointer items-start gap-3 text-sm text-muted-foreground"
+                  >
+                    <input
+                      id="consent"
+                      name="consent"
+                      type="checkbox"
+                      className="mt-0.5 h-4 w-4 shrink-0 accent-[var(--neon-green)]"
+                      aria-invalid={!!consentError}
+                    />
+                    <span>
+                      Concordo em compartilhar meus dados para contato comercial da
+                      NEXORA.
+                    </span>
+                  </label>
+                  {consentError ? (
+                    <p role="alert" className="text-xs text-[#FF6B6B]">
+                      {consentError}
+                    </p>
+                  ) : null}
+                </div>
+
                 <button
                   type="submit"
                   className="group mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground shadow-[0_0_0_1px_rgba(0,245,160,0.35)] transition-all hover:shadow-[0_0_40px_-6px_var(--neon-green)] active:scale-[0.98]"
