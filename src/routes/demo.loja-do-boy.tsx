@@ -89,11 +89,14 @@ function LojaDoBoyDemo() {
       {/* Header do cliente */}
       <header className="border-b border-[#FFE600]/20 bg-[#101012]">
         <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-6 sm:px-6 md:py-8">
-          <h1 className="text-2xl font-extrabold tracking-tight md:text-3xl">
-            <span className="text-[#FFE600]">Loja do Boy</span>{" "}
-            <span className="text-white/30">|</span>{" "}
-            <span className="text-white">Importados, Eletrônicos & Acessórios</span>
-          </h1>
+          <div className="flex items-center gap-3">
+            <BoyMascot />
+            <h1 className="text-2xl font-extrabold tracking-tight md:text-3xl">
+              <span className="text-[#FFE600]">Loja do Boy</span>{" "}
+              <span className="text-white/30">|</span>{" "}
+              <span className="text-white">Importados, Eletrônicos & Acessórios</span>
+            </h1>
+          </div>
           <p className="text-sm text-white/60">
             Angatuba – SP · Atendimento todos os dias pelo WhatsApp
           </p>
