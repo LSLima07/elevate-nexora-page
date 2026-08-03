@@ -1,6 +1,7 @@
 import { WHATSAPP_QUOTE_URL } from "@/lib/whatsapp";
 import { ArrowRight } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
+import { Link } from "@tanstack/react-router";
 
 type Project = {
   niche: string;
@@ -8,6 +9,7 @@ type Project = {
   name: string;
   problem: string;
   solution: string;
+  demoTo?: string;
 };
 
 const projects: Project[] = [
@@ -19,6 +21,7 @@ const projects: Project[] = [
       "Falta de clareza nas novidades e promoções antes do cliente ir até a loja.",
     solution:
       "Landing Page estilo vitrine digital dinâmica, focada em apresentar lançamentos e direcionar o cliente direto para o fechamento no WhatsApp.",
+    demoTo: "/demo/loja-do-boy",
   },
   {
     niche: "Serviços Automotivos",
@@ -145,6 +148,15 @@ function ProjectCard({
                 </div>
 
                 <div className="mt-7 border-t border-white/5 pt-5">
+                  {project.demoTo ? (
+                    <Link
+                      to={project.demoTo}
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--cyan)] transition-colors hover:text-[var(--neon-green)]"
+                    >
+                      Conhecer Solução
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  ) : (
                   <a
                     href={WHATSAPP_QUOTE_URL}
                     target="_blank"
@@ -154,6 +166,7 @@ function ProjectCard({
                     Conhecer Solução
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </a>
+                  )}
                 </div>
     </article>
   );
