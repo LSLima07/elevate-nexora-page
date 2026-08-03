@@ -7,6 +7,7 @@ type Project = {
   niche: string;
   nicheAccent: "cyan" | "purple";
   name: string;
+  subtitle?: string;
   problem: string;
   solution: string;
   demoTo?: string;
@@ -26,11 +27,14 @@ const projects: Project[] = [
   {
     niche: "Serviços Automotivos",
     nicheAccent: "purple",
-    name: "AutoMec — Oficina de Confiança",
+    name: "Ginez Autopeças & Troca de Óleo — Loja Virtual e Agendamento",
+    subtitle:
+      "Site de alta conversão para autopeças, troca de óleo e serviços automotivos em Angatuba e Itapetininga.",
     problem:
-      "Dificuldade em transmitir segurança e informações claras para novos clientes na internet em momentos de urgência.",
+      "Dificuldade em exibir o estoque de peças, agendar troca de óleo e transmitir confiança instantânea no atendimento online.",
     solution:
-      "Website rápido focado em geolocalização, depoimentos de clientes satisfeitos e botão de socorro/agendamento imediato em 1 clique.",
+      "Website moderno focado em localização, agendamento direto via WhatsApp e catálogo de serviços rápido.",
+    demoTo: "/demo/ginez-autopecas",
   },
   {
     niche: "Casa & Decoração",
@@ -124,6 +128,11 @@ function ProjectCard({
                 <h3 className="mt-5 font-display text-xl font-bold leading-tight tracking-tight text-foreground">
                   {project.name}
                 </h3>
+                {project.subtitle ? (
+                  <p className="mt-2 text-sm leading-relaxed text-foreground/60">
+                    {project.subtitle}
+                  </p>
+                ) : null}
 
                 <div className="mt-5 space-y-4">
                   <div>

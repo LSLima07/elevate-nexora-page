@@ -66,6 +66,36 @@ export const Route = createFileRoute("/demo/loja-do-boy")({
 });
 
 function LojaDoBoyDemo() {
+  return <LojaDoBoyPage />;
+}
+
+function BoyMascot() {
+  return (
+    <span
+      aria-hidden
+      className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#FFE600]/40 bg-[#FFE600]/10 md:h-14 md:w-14"
+    >
+      <svg viewBox="0 0 64 64" className="h-9 w-9 md:h-10 md:w-10" role="img" aria-label="Mascote Loja do Boy">
+        {/* boné */}
+        <path d="M14 26a18 18 0 0 1 36 0z" fill="#00A3FF" />
+        <path d="M12 26h26a4 4 0 0 1 0 8H16a4 4 0 0 1-4-4z" fill="#0077CC" />
+        {/* rosto */}
+        <circle cx="32" cy="40" r="15" fill="#FFE600" />
+        <circle cx="26" cy="38" r="2.4" fill="#101012" />
+        <circle cx="38" cy="38" r="2.4" fill="#101012" />
+        <path
+          d="M25 45c2.2 3 5 4.4 7 4.4s4.8-1.4 7-4.4"
+          stroke="#101012"
+          strokeWidth="2.6"
+          strokeLinecap="round"
+          fill="none"
+        />
+      </svg>
+    </span>
+  );
+}
+
+function LojaDoBoyPage() {
   return (
     <div className="min-h-screen bg-[#0A0A0B] text-white">
       {/* Barra NEXORA */}
@@ -89,11 +119,14 @@ function LojaDoBoyDemo() {
       {/* Header do cliente */}
       <header className="border-b border-[#FFE600]/20 bg-[#101012]">
         <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-6 sm:px-6 md:py-8">
-          <h1 className="text-2xl font-extrabold tracking-tight md:text-3xl">
-            <span className="text-[#FFE600]">Loja do Boy</span>{" "}
-            <span className="text-white/30">|</span>{" "}
-            <span className="text-white">Importados, Eletrônicos & Acessórios</span>
-          </h1>
+          <div className="flex items-center gap-3">
+            <BoyMascot />
+            <h1 className="text-2xl font-extrabold tracking-tight md:text-3xl">
+              <span className="text-[#FFE600]">Loja do Boy</span>{" "}
+              <span className="text-white/30">|</span>{" "}
+              <span className="text-white">Importados, Eletrônicos & Acessórios</span>
+            </h1>
+          </div>
           <p className="text-sm text-white/60">
             Angatuba – SP · Atendimento todos os dias pelo WhatsApp
           </p>
