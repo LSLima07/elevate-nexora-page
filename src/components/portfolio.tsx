@@ -39,11 +39,14 @@ const projects: Project[] = [
   {
     niche: "Casa & Decoração",
     nicheAccent: "cyan",
-    name: "Conceito Móveis — Catálogo Digital",
+    name: "Conceito Móveis e Decorações — Catálogo Digital & Atendimento Premium",
+    subtitle:
+      "Vitrine virtual interativa para móveis de alto padrão e projetos de ambientes em Sorocaba.",
     problem:
-      "Perda de vendas para concorrentes online por não exibir o catálogo, preços e condições de forma moderna na web.",
+      "Atendimento lento em canais tradicionais e perda de clientes por falta de um catálogo online interativo com fotos e preços transparentes.",
     solution:
-      "Catálogo digital interativo, otimizado para celulares, onde o cliente navega pelos ambientes e monta seu orçamento facilmente.",
+      "Catálogo digital elegante com navegação por ambientes (Salas, Quartos, Varandas), orçamento direto no WhatsApp e simulação de prazos.",
+    demoTo: "/demo/conceito-moveis",
   },
 ];
 
