@@ -5,6 +5,7 @@ import {
   Droplets,
   MapPin,
   MessageCircle,
+  Phone,
   Star,
   Truck,
   Wrench,
