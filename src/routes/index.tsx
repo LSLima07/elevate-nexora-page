@@ -3,6 +3,8 @@ import { SiteHeader } from "@/components/site-header";
 import { Hero } from "@/components/hero";
 import { Services } from "@/components/services";
 import { Portfolio } from "@/components/portfolio";
+import { RoiCalculator } from "@/components/roi-calculator";
+import { BeforeAfter } from "@/components/before-after";
 import { Faq, faqs } from "@/components/faq";
 import { ServiceArea } from "@/components/service-area";
 import { QuoteForm } from "@/components/quote-form";
@@ -85,6 +87,8 @@ function Index() {
         <Hero />
         <Services />
         <Portfolio />
+        <BeforeAfter />
+        <RoiCalculator />
         <Faq />
         <ServiceArea />
         <QuoteForm />
