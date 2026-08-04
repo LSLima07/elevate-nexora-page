@@ -348,9 +348,10 @@ function GinezDemo() {
         )}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full bg-[#FFD400] px-4 py-3 text-sm font-bold text-black shadow-[0_10px_40px_-10px_#FFD400] transition-transform hover:scale-105 active:scale-95 sm:bottom-8 sm:right-8"
+        aria-label="Falar com a Ginez Autopeças no WhatsApp"
+        className="fixed bottom-5 right-5 z-50 inline-flex min-h-11 items-center gap-2 rounded-full bg-[#FFD400] px-4 py-3 text-sm font-bold text-black shadow-[0_10px_40px_-10px_#FFD400] transition-transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:scale-95 sm:bottom-8 sm:right-8"
       >
-        <MessageCircle className="h-5 w-5" />
+        <MessageCircle className="h-5 w-5" aria-hidden />
         <span className="hidden sm:inline">Falar com a Ginez Autopeças</span>
         <span className="sm:hidden">Ginez</span>
       </a>
