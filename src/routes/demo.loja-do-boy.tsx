@@ -60,7 +60,48 @@ export const Route = createFileRoute("/demo/loja-do-boy")({
         content:
           "Veja na prática uma vitrine digital NEXORA: produtos, preços e pedido direto no WhatsApp.",
       },
+      {
+        property: "og:url",
+        content: "https://elevate-nexora-page.lovable.app/demo/loja-do-boy",
+      },
+      {
+        property: "og:image",
+        content: "https://elevate-nexora-page.lovable.app/og-image.png",
+      },
+      {
+        name: "twitter:image",
+        content: "https://elevate-nexora-page.lovable.app/og-image.png",
+      },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://elevate-nexora-page.lovable.app/demo/loja-do-boy",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Loja do Boy — Importados, Eletrônicos & Acessórios",
+          description:
+            "Vitrine digital de importados, eletrônicos e acessórios em Angatuba - SP, com pedidos diretos pelo WhatsApp.",
+          telephone: "+5515998130853",
+          areaServed: "Angatuba e Região (São Paulo)",
+          priceRange: "$$",
+          url: "https://elevate-nexora-page.lovable.app/demo/loja-do-boy",
+          image: "https://elevate-nexora-page.lovable.app/og-image.png",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Angatuba",
+            addressRegion: "SP",
+            addressCountry: "BR",
+          },
+        }),
+      },
     ],
   }),
 });

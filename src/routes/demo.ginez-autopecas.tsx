@@ -70,7 +70,63 @@ export const Route = createFileRoute("/demo/ginez-autopecas")({
         content:
           "Veja na prática um site automotivo NEXORA: serviços, localização e agendamento no WhatsApp.",
       },
+      {
+        property: "og:url",
+        content: "https://elevate-nexora-page.lovable.app/demo/ginez-autopecas",
+      },
+      {
+        property: "og:image",
+        content: "https://elevate-nexora-page.lovable.app/og-image.png",
+      },
+      {
+        name: "twitter:image",
+        content: "https://elevate-nexora-page.lovable.app/og-image.png",
+      },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://elevate-nexora-page.lovable.app/demo/ginez-autopecas",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AutoPartsStore",
+          name: "Ginez Autopeças & Troca de Óleo",
+          description:
+            "Peças multimarcas, lubrificantes Ipiranga e super troca de óleo em Angatuba - SP, com agendamento pelo WhatsApp.",
+          telephone: "+5515996761741",
+          areaServed: "Angatuba, Itapetininga e Região (São Paulo)",
+          priceRange: "$$",
+          url: "https://elevate-nexora-page.lovable.app/demo/ginez-autopecas",
+          image: "https://elevate-nexora-page.lovable.app/og-image.png",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "R. Cel. Lodovico Homem de Góes, 302 — Vila Catanduva",
+            addressLocality: "Angatuba",
+            addressRegion: "SP",
+            addressCountry: "BR",
+          },
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+              ],
+              opens: "08:00",
+              closes: "18:00",
+            },
+          ],
+        }),
+      },
     ],
   }),
 });
