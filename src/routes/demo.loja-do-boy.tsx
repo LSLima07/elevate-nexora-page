@@ -60,7 +60,48 @@ export const Route = createFileRoute("/demo/loja-do-boy")({
         content:
           "Veja na prática uma vitrine digital NEXORA: produtos, preços e pedido direto no WhatsApp.",
       },
+      {
+        property: "og:url",
+        content: "https://elevate-nexora-page.lovable.app/demo/loja-do-boy",
+      },
+      {
+        property: "og:image",
+        content: "https://elevate-nexora-page.lovable.app/og-image.png",
+      },
+      {
+        name: "twitter:image",
+        content: "https://elevate-nexora-page.lovable.app/og-image.png",
+      },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://elevate-nexora-page.lovable.app/demo/loja-do-boy",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Loja do Boy — Importados, Eletrônicos & Acessórios",
+          description:
+            "Vitrine digital de importados, eletrônicos e acessórios em Angatuba - SP, com pedidos diretos pelo WhatsApp.",
+          telephone: "+5515998130853",
+          areaServed: "Angatuba e Região (São Paulo)",
+          priceRange: "$$",
+          url: "https://elevate-nexora-page.lovable.app/demo/loja-do-boy",
+          image: "https://elevate-nexora-page.lovable.app/og-image.png",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Angatuba",
+            addressRegion: "SP",
+            addressCountry: "BR",
+          },
+        }),
+      },
     ],
   }),
 });
@@ -243,9 +284,10 @@ function LojaDoBoyPage() {
         )}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full bg-[#FFE600] px-4 py-3 text-sm font-bold text-black shadow-[0_10px_40px_-10px_#FFE600] transition-transform hover:scale-105 active:scale-95 sm:bottom-8 sm:right-8"
+        aria-label="Falar com a Loja do Boy no WhatsApp"
+        className="fixed bottom-5 right-5 z-50 inline-flex min-h-11 items-center gap-2 rounded-full bg-[#FFE600] px-4 py-3 text-sm font-bold text-black shadow-[0_10px_40px_-10px_#FFE600] transition-transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:scale-95 sm:bottom-8 sm:right-8"
       >
-        <MessageCircle className="h-5 w-5" />
+        <MessageCircle className="h-5 w-5" aria-hidden />
         <span className="hidden sm:inline">Falar direto com a Loja do Boy</span>
         <span className="sm:hidden">Loja do Boy</span>
       </a>
