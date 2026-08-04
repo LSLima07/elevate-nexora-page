@@ -220,10 +220,16 @@ function GinezDemo() {
         </section>
 
         {/* Info física + destaques */}
-        <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
+        <section
+          aria-labelledby="ginez-contato"
+          className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16"
+        >
+          <h3 id="ginez-contato" className="sr-only">
+            Contato e localização
+          </h3>
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_1.4fr]">
             <div className="rounded-2xl border border-white/10 bg-[#131316] p-6">
-              <h3 className="text-lg font-bold tracking-tight">Onde estamos</h3>
+              <h4 className="text-lg font-bold tracking-tight">Onde estamos</h4>
               <p className="mt-4 flex items-start gap-3 text-sm text-white/70">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#FFD400]" />
                 R. Cel. Lodovico Homem de Góes, 302 — Vila Catanduva, Angatuba - SP
@@ -236,6 +242,37 @@ function GinezDemo() {
                 <MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-[#FFD400]" />
                 (15) 99676-1741
               </p>
+
+              <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="tel:+5515996761741"
+                  className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-[#2F6BFF] px-4 py-2.5 text-sm font-bold text-white transition-transform hover:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8FB6FF]"
+                >
+                  <Phone className="h-4 w-4" aria-hidden />
+                  Ligar agora
+                </a>
+                <a
+                  href={storeUrl(
+                    "Olá, Ginez Autopeças! Gostaria de falar com um atendente."
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-[#FFD400] px-4 py-2.5 text-sm font-bold text-black transition-transform hover:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFD400]"
+                >
+                  <MessageCircle className="h-4 w-4" aria-hidden />
+                  Chamar no WhatsApp
+                </a>
+              </div>
+
+              <div className="mt-5 overflow-hidden rounded-xl border border-white/10">
+                <iframe
+                  title="Mapa da Ginez Autopeças — R. Cel. Lodovico Homem de Góes, 302, Angatuba - SP"
+                  src="https://www.google.com/maps?q=R.%20Cel.%20Lodovico%20Homem%20de%20G%C3%B3es%2C%20302%20-%20Vila%20Catanduva%2C%20Angatuba%20-%20SP&output=embed"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="h-56 w-full border-0 grayscale-[0.3] contrast-[1.05] [color-scheme:dark]"
+                />
+              </div>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-3">
