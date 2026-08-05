@@ -164,10 +164,11 @@ function ConceitoDemo() {
             <div className="mt-7 flex flex-wrap gap-3">
               <a
                 href={storeUrl(
-                  "Olá, Conceito Móveis! Vi o catálogo digital e gostaria de consultar valores."
+                  "Olá! Vi a vitrine virtual da Conceito Móveis e gostaria de mais informações sobre valores e prazos."
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Falar com um consultor da Conceito Móveis no WhatsApp"
                 className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#D4A373] px-5 py-3 text-sm font-bold text-[#1B1815] transition-transform hover:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4EDE4]"
               >
                 <MessageCircle className="h-4 w-4" aria-hidden />
@@ -228,6 +229,17 @@ function ConceitoDemo() {
                   >
                     <MessageCircle className="h-4 w-4" aria-hidden />
                     Consultar Valor no WhatsApp
+                  </a>
+                  <a
+                    href={storeUrl(
+                      `Olá! Vi o ambiente ${p.room} na vitrine virtual e gostaria de mais informações sobre valores e prazos.`
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Ver mais opções do ambiente ${p.room} no WhatsApp`}
+                    className="mt-2 inline-flex min-h-11 items-center justify-center rounded-xl border border-[#B08D57]/50 px-4 py-2.5 text-xs font-semibold text-[#E6C79C] transition-colors hover:bg-[#B08D57]/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E6C79C]"
+                  >
+                    Ver mais de {p.room}
                   </a>
                 </div>
               </article>
@@ -322,7 +334,7 @@ function ConceitoDemo() {
 
       <a
         href={storeUrl(
-          "Olá, Conceito Móveis! Vi o site de vocês e gostaria de mais informações."
+          "Olá! Vi a vitrine virtual da Conceito Móveis e gostaria de mais informações sobre valores e prazos."
         )}
         target="_blank"
         rel="noopener noreferrer"
