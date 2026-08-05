@@ -219,10 +219,11 @@ function ConceitoDemo() {
                   </p>
                   <a
                     href={storeUrl(
-                      `Olá, Conceito Móveis! Gostaria de consultar o valor de: ${p.name}.`
+                      `Olá! Vi o produto ${p.name} (${p.room}) na vitrine virtual e gostaria de mais informações sobre valores e prazos.`
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`Consultar valor de ${p.name} no WhatsApp`}
                     className="mt-4 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#D4A373] px-4 py-2.5 text-xs font-bold text-[#1B1815] transition-transform hover:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F4EDE4]"
                   >
                     <MessageCircle className="h-4 w-4" aria-hidden />
