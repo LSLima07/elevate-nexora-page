@@ -45,7 +45,7 @@ export function Services() {
         className="pointer-events-none absolute left-[-10%] top-1/3 h-[420px] w-[520px] rounded-full opacity-30 blur-3xl"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(0,229,255,0.14), transparent 70%)",
+            "radial-gradient(closest-side, color-mix(in oklab, var(--mint) 12%, transparent), transparent 70%)",
         }}
       />
 
@@ -61,7 +61,7 @@ export function Services() {
               className="bg-clip-text text-transparent"
               style={{
                 backgroundImage:
-                  "linear-gradient(90deg,#00F5A0 0%,#00E5FF 55%,#2D8CFF 100%)",
+                  "linear-gradient(90deg,var(--mint) 0%,var(--cyan) 55%,var(--tech-blue) 100%)",
               }}
             >
               crescer no digital
@@ -99,7 +99,7 @@ function ServiceCard({
   return (
     <article
       ref={ref}
-      className={`reveal ${visible ? "reveal-in" : ""} group relative rounded-2xl border border-white/10 bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_20px_60px_-30px_rgba(0,229,255,0.35)] md:p-10`}
+      className={`reveal ${visible ? "reveal-in" : ""} group relative rounded-2xl border border-white/10 bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_20px_60px_-30px_rgba(74,222,128,0.25)] md:p-10`}
       style={{ transitionDelay: visible ? `${index * 120}ms` : "0ms" }}
     >
               <div
@@ -107,7 +107,7 @@ function ServiceCard({
                 className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                 style={{
                   background:
-                    "radial-gradient(600px circle at 0% 0%, rgba(122,60,255,0.08), transparent 40%)",
+                    "radial-gradient(600px circle at 0% 0%, color-mix(in oklab, var(--mint) 8%, transparent), transparent 40%)",
                 }}
               />
 
@@ -116,10 +116,10 @@ function ServiceCard({
                   className="inline-flex h-12 w-12 items-center justify-center rounded-xl"
                   style={{
                     background:
-                      "linear-gradient(135deg,#00E5FF 0%,#7A3CFF 100%)",
+                      "linear-gradient(135deg,var(--cyan) 0%,var(--electric-purple) 100%)",
                   }}
                 >
-                  <Icon className="h-6 w-6 text-[#04121B]" strokeWidth={2.25} />
+                  <Icon className="h-6 w-6 text-primary-foreground" strokeWidth={2.25} />
                 </div>
 
                 <h3 className="mt-6 font-display text-xl font-bold text-foreground md:text-2xl">
@@ -127,7 +127,7 @@ function ServiceCard({
                 </h3>
                 <p
                   className="mt-3 text-sm leading-relaxed md:text-base"
-                  style={{ color: "#9AA5B1" }}
+                  style={{ color: "var(--muted-foreground)" }}
                 >
                   {description}
                 </p>

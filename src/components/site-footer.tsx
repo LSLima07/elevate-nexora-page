@@ -32,7 +32,7 @@ export function SiteFooter() {
             <p className="max-w-xs text-sm text-muted-foreground">
               Transformamos confiança em crescimento.
             </p>
-            <p className="text-xs text-[#9AA5B1]/70">
+            <p className="text-xs text-muted-foreground/70">
               © 2026 NEXORA. Todos os direitos reservados.
             </p>
           </div>
@@ -96,20 +96,20 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-white/5 pt-6 md:flex-row md:items-center">
-          <p className="text-xs text-[#9AA5B1]/70">
+          <p className="text-xs text-muted-foreground/70">
             Feito com cuidado para negócios que querem crescer.
           </p>
           <div className="flex items-center gap-6">
             <a
               href="#"
-              className="text-xs text-[#9AA5B1] transition-colors hover:text-foreground"
+              className="text-xs text-muted-foreground transition-colors hover:text-foreground"
             >
               Termos de Uso
             </a>
             <button
               type="button"
               onClick={() => setPrivacyOpen(true)}
-              className="text-xs text-[#9AA5B1] transition-colors hover:text-cyan"
+              className="text-xs text-muted-foreground transition-colors hover:text-cyan"
             >
               Política de Privacidade
             </button>
@@ -125,7 +125,7 @@ export function SiteFooter() {
           className="fixed inset-0 z-[60] flex items-center justify-center p-4"
         >
           <div
-            className="absolute inset-0 bg-[#070A14]/80 backdrop-blur-sm"
+            className="absolute inset-0 bg-background/80 backdrop-blur-sm"
             onClick={() => setPrivacyOpen(false)}
           />
           <div className="relative max-h-[80vh] w-full max-w-lg overflow-y-auto rounded-3xl border border-white/10 bg-[var(--midnight)] p-7 shadow-[0_0_60px_-20px_var(--cyan)]">

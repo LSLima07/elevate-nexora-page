@@ -114,14 +114,14 @@ function ProjectCard({
   return (
     <article
       ref={ref}
-      className={`reveal ${visible ? "reveal-in" : ""} group relative flex flex-col rounded-2xl border border-[var(--midnight)] bg-[var(--deep-bg)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_24px_70px_-30px_rgba(122,60,255,0.35)]`}
+      className={`reveal ${visible ? "reveal-in" : ""} group relative flex flex-col rounded-2xl border border-[var(--midnight)] bg-[var(--deep-bg)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_24px_70px_-30px_rgba(74,222,128,0.25)]`}
       style={{ transitionDelay: visible ? `${index * 140}ms` : "0ms" }}
     >
                 <div
                   className="inline-flex w-fit items-center rounded-full border px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em]"
                   style={{
                     color: accentColor,
-                    backgroundColor: "rgba(45, 140, 255, 0.08)",
+                    backgroundColor: "color-mix(in oklab, var(--mint) 10%, transparent)",
                     borderColor: `${accentColor}33`,
                   }}
                 >
@@ -152,7 +152,7 @@ function ProjectCard({
                     </p>
                     <p
                       className="mt-1.5 text-sm leading-relaxed"
-                      style={{ color: "#9AA5B1", fontFamily: "var(--font-sans)" }}
+                      style={{ color: "var(--muted-foreground)", fontFamily: "var(--font-sans)" }}
                     >
                       {project.solution}
                     </p>
