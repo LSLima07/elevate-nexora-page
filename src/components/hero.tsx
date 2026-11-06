@@ -1,88 +1,95 @@
-import { ArrowRight } from "lucide-react";
-import { WHATSAPP_DIAGNOSIS_URL } from "@/lib/whatsapp";
+import { useId, useState } from "react";
+import { ArrowUpRight, Check, MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  HERO_SEGMENTS,
+  getHeroSegment,
+  getHeroWhatsappUrl,
+  type HeroSegmentId,
+} from "@/lib/hero-segments";
+
+type NicheQuickSelectorProps = {
+  selectedSegment: HeroSegmentId;
+  onSelect: (segment: HeroSegmentId) => void;
+  previewId: string;
+};
+
+export function NicheQuickSelector({
+  selectedSegment,
+  onSelect,
+  previewId,
+}: NicheQuickSelectorProps) {
+  return (
+    <fieldset className="w-full min-w-0 border-0 p-0">
+      <legend className="mb-3 w-full text-center text-sm font-medium text-muted-foreground">
+        Qual é o seu negócio?
+      </legend>
+      <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:justify-center">
+        {HERO_SEGMENTS.map((segment) => {
+          const selected = segment.id === selectedSegment;
+          return (
+            <Button
+              key={segment.id}
+              type="button"
+              variant="outline"
+              aria-pressed={selected}
+              aria-controls={previewId}
+              onClick={() => onSelect(segment.id)}
+              className="h-auto min-h-12 min-w-0 gap-1.5 rounded-lg border-border bg-background px-3 py-3 text-xs text-foreground shadow-none hover:border-primary/60 hover:bg-primary/10 hover:text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background aria-pressed:border-primary aria-pressed:bg-primary/10 aria-pressed:text-primary sm:text-sm"
+            >
+              <Check aria-hidden="true" className={selected ? "size-4" : "invisible size-4"} />
+              <span className="whitespace-normal text-left leading-snug">{segment.label}</span>
+            </Button>
+          );
+        })}
+      </div>
+    </fieldset>
+  );
+}
 
 export function Hero() {
+  const [selectedSegment, setSelectedSegment] = useState<HeroSegmentId>("bebidas");
+  const id = useId();
+  const previewId = `${id}-preview`;
+  const headingId = `${id}-heading`;
+  const segment = getHeroSegment(selectedSegment);
+
   return (
-    <section className="relative isolate overflow-hidden">
-      {/* Ambient glows */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-[-10%] h-[520px] w-[820px] -translate-x-1/2 rounded-full opacity-60 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(closest-side, rgba(0,229,255,0.18), transparent 70%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute right-[-10%] top-[30%] h-[420px] w-[520px] rounded-full opacity-50 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(closest-side, rgba(122,60,255,0.22), transparent 70%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-[-8%] bottom-[-10%] h-[380px] w-[480px] rounded-full opacity-40 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(closest-side, rgba(0,245,160,0.18), transparent 70%)",
-        }}
-      />
-
-      <div className="mx-auto flex min-h-[calc(100svh-4rem)] max-w-4xl flex-col items-center justify-center px-6 py-24 text-center">
-        <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan opacity-70" />
-            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-cyan" />
-          </span>
-          Agência de soluções digitais
-        </span>
-
-        <h1 className="mt-8 text-balance text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground md:text-7xl">
-          Transformamos confiança em{" "}
-          <span className="bg-gradient-to-br from-neon-green via-cyan to-tech-blue bg-clip-text text-transparent">
-            crescimento.
-          </span>
+    <section aria-labelledby={headingId} className="conversion-hero bg-background text-foreground">
+      <div className="mx-auto flex max-w-5xl flex-col items-center px-4 py-12 text-center sm:px-6 sm:py-14 lg:py-16">
+        <h1 id={headingId} className="max-w-4xl text-balance font-display text-3xl font-extrabold leading-tight tracking-normal sm:text-4xl lg:text-5xl">
+          Seu comércio no topo do Google e pedidos direto no seu{" "}
+          <span className="text-primary">WhatsApp todos os dias.</span>
         </h1>
 
-        <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
-          Criamos sites rápidos e otimizados que colocam negócios locais no topo
-          do Google — do primeiro clique ao primeiro cliente.
+        <p className="mt-5 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
+          Criamos a vitrine virtual rápida da sua loja em até 5 dias úteis,
+          configuramos seu Google Meu Negócio e deixamos tudo pronto para você só
+          responder os clientes.
         </p>
 
-        <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row">
-          <a
-            href={WHATSAPP_DIAGNOSIS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground shadow-[0_0_0_1px_rgba(0,245,160,0.35)] transition-all hover:shadow-[0_0_40px_-6px_var(--neon-green)] active:scale-[0.98]"
-          >
-            Agendar diagnóstico gratuito
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </a>
-          <a
-            href="#portfolio"
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-6 py-3.5 text-base font-medium text-foreground/90 transition-colors hover:border-white/20 hover:bg-white/[0.05]"
-          >
-            Ver portfólio
-          </a>
+        <div className="mt-8 w-full max-w-3xl">
+          <NicheQuickSelector selectedSegment={selectedSegment} onSelect={setSelectedSegment} previewId={previewId} />
+
+          <div className="mt-5 border-y border-border py-5 text-left">
+            <div className="mb-3 flex items-center gap-2 text-xs text-muted-foreground">
+              <MessageCircle aria-hidden="true" className="size-4 text-primary" />
+              Exemplo de mensagem do seu cliente
+            </div>
+            <div id={previewId} role="status" aria-live="polite" aria-atomic="true" className="min-h-24 sm:min-h-16">
+              <p className="text-pretty text-base leading-relaxed sm:text-lg">
+                <strong className="font-semibold">“{segment.preview}”</strong>
+              </p>
+            </div>
+          </div>
         </div>
 
-        <ul className="mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
-          <li className="flex items-center gap-2">
-            <span className="h-1 w-1 rounded-full bg-cyan" />
-            Google PageSpeed 95+
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="h-1 w-1 rounded-full bg-cyan" />
-            SEO local especializado
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="h-1 w-1 rounded-full bg-cyan" />
-            Entrega em até 21 dias
-          </li>
-        </ul>
+        <Button asChild size="lg" className="mt-7 h-auto min-h-14 w-full max-w-sm whitespace-normal rounded-lg bg-primary px-5 py-4 text-base font-bold text-primary-foreground shadow-none hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background">
+          <a href={getHeroWhatsappUrl(selectedSegment)} target="_blank" rel="noopener noreferrer" aria-label={`Destravar meu Site de Vendas para ${segment.label} no WhatsApp (abre em nova aba)`}>
+            Destravar meu Site de Vendas
+            <ArrowUpRight aria-hidden="true" />
+          </a>
+        </Button>
       </div>
     </section>
   );

@@ -18,6 +18,12 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
+      { title: "NEXORA | Sites de Vendas para Negócios Locais" },
+      { name: "description", content: "Vitrine virtual, Google Meu Negócio e pedidos pelo WhatsApp para MEIs e negócios locais. Conheça a NEXORA." },
+      { property: "og:title", content: "NEXORA | Sites de Vendas para Negócios Locais" },
+      { property: "og:description", content: "Vitrine virtual, presença local no Google e atendimento pelo WhatsApp para o seu comércio." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:image", content: OG_IMAGE },
       { property: "og:image:secure_url", content: OG_IMAGE },
       { property: "og:image:type", content: "image/png" },
