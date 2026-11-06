@@ -68,12 +68,13 @@
   --radius: 0.75rem;
 
   /* Brand raw tokens */
-  --midnight: #0b1020;
-  --deep-bg: #070a14;
-  --tech-blue: #2d8cff;
-  --cyan: #00e5ff;
-  --electric-purple: #7a3cff;
-  --neon-green: #00f5a0;
+  /* Identidade MEI: Smoked Ebony + Mint (nomes antigos mantidos como aliases) */
+  --midnight: #16181f;
+  --deep-bg: #0d0e12;
+  --tech-blue: #38bdf8;
+  --cyan: #5eead4;
+  --electric-purple: #22c55e;
+  --neon-green: #4ade80;
   --mint: #4ade80;
   --smoked-ebony: #0d0e12;
 
@@ -85,18 +86,18 @@
   --popover: var(--midnight);
   --popover-foreground: oklch(0.98 0.005 240);
   --primary: var(--neon-green);
-  --primary-foreground: #04121b;
+  --primary-foreground: #06140c;
   --secondary: oklch(1 0 0 / 6%);
   --secondary-foreground: oklch(0.98 0.005 240);
   --muted: oklch(1 0 0 / 4%);
   --muted-foreground: oklch(0.72 0.02 240);
   --accent: var(--cyan);
-  --accent-foreground: #04121b;
+  --accent-foreground: #06140c;
   --destructive: oklch(0.65 0.22 25);
   --destructive-foreground: oklch(0.98 0.005 240);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 12%);
-  --ring: var(--cyan);
+  --ring: var(--mint);
   --chart-1: var(--tech-blue);
   --chart-2: var(--cyan);
   --chart-3: var(--electric-purple);
@@ -105,7 +106,7 @@
   --sidebar: var(--midnight);
   --sidebar-foreground: oklch(0.98 0.005 240);
   --sidebar-primary: var(--neon-green);
-  --sidebar-primary-foreground: #04121b;
+  --sidebar-primary-foreground: #06140c;
   --sidebar-accent: oklch(1 0 0 / 6%);
   --sidebar-accent-foreground: oklch(0.98 0.005 240);
   --sidebar-border: oklch(1 0 0 / 10%);
