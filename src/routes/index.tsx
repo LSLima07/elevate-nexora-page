@@ -7,7 +7,7 @@ import { RoiCalculator } from "@/components/roi-calculator";
 import { BeforeAfter } from "@/components/before-after";
 import { Faq, faqs } from "@/components/faq";
 import { ServiceArea } from "@/components/service-area";
-import { QuoteForm } from "@/components/quote-form";
+import { Pricing } from "@/components/pricing";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsappFloat } from "@/components/whatsapp-float";
 
@@ -94,10 +94,10 @@ function Index() {
         <Services />
         <Portfolio />
         <BeforeAfter />
+        <Pricing />
         <RoiCalculator />
         <Faq />
         <ServiceArea />
-        <QuoteForm />
       </main>
       <SiteFooter />
       <WhatsappFloat />

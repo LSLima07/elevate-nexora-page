@@ -99,7 +99,7 @@ function ServiceCard({
   return (
     <article
       ref={ref}
-      className={`reveal ${visible ? "reveal-in" : ""} group relative rounded-2xl border border-white/10 bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_20px_60px_-30px_rgba(0,229,255,0.35)] md:p-10`}
+      className={`reveal ${visible ? "reveal-in" : ""} group relative rounded-2xl border border-white/10 bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_20px_60px_-30px_rgba(74,222,128,0.25)] md:p-10`}
       style={{ transitionDelay: visible ? `${index * 120}ms` : "0ms" }}
     >
               <div

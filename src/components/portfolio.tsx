@@ -114,7 +114,7 @@ function ProjectCard({
   return (
     <article
       ref={ref}
-      className={`reveal ${visible ? "reveal-in" : ""} group relative flex flex-col rounded-2xl border border-[var(--midnight)] bg-[var(--deep-bg)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_24px_70px_-30px_rgba(122,60,255,0.35)]`}
+      className={`reveal ${visible ? "reveal-in" : ""} group relative flex flex-col rounded-2xl border border-[var(--midnight)] bg-[var(--deep-bg)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_24px_70px_-30px_rgba(74,222,128,0.25)]`}
       style={{ transitionDelay: visible ? `${index * 140}ms` : "0ms" }}
     >
                 <div
