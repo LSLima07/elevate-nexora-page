@@ -9,25 +9,25 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as DemoLojaDoBoyRouteImport } from './routes/demo.loja-do-boy'
-import { Route as DemoGinezAutopecasRouteImport } from './routes/demo.ginez-autopecas'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as DemoConceitoMoveisRouteImport } from './routes/demo.conceito-moveis'
+import { Route as DemoGinezAutopecasRouteImport } from './routes/demo.ginez-autopecas'
+import { Route as DemoLojaDoBoyRouteImport } from './routes/demo.loja-do-boy'
 
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DemoLojaDoBoyRoute = DemoLojaDoBoyRouteImport.update({
-  id: '/demo/loja-do-boy',
-  path: '/demo/loja-do-boy',
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DemoConceitoMoveisRoute = DemoConceitoMoveisRouteImport.update({
+  id: '/demo/conceito-moveis',
+  path: '/demo/conceito-moveis',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DemoGinezAutopecasRoute = DemoGinezAutopecasRouteImport.update({
@@ -35,9 +35,9 @@ const DemoGinezAutopecasRoute = DemoGinezAutopecasRouteImport.update({
   path: '/demo/ginez-autopecas',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DemoConceitoMoveisRoute = DemoConceitoMoveisRouteImport.update({
-  id: '/demo/conceito-moveis',
-  path: '/demo/conceito-moveis',
+const DemoLojaDoBoyRoute = DemoLojaDoBoyRouteImport.update({
+  id: '/demo/loja-do-boy',
+  path: '/demo/loja-do-boy',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -97,13 +97,6 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -111,11 +104,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/demo/loja-do-boy': {
-      id: '/demo/loja-do-boy'
-      path: '/demo/loja-do-boy'
-      fullPath: '/demo/loja-do-boy'
-      preLoaderRoute: typeof DemoLojaDoBoyRouteImport
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demo/conceito-moveis': {
+      id: '/demo/conceito-moveis'
+      path: '/demo/conceito-moveis'
+      fullPath: '/demo/conceito-moveis'
+      preLoaderRoute: typeof DemoConceitoMoveisRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/demo/ginez-autopecas': {
@@ -125,11 +125,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoGinezAutopecasRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/demo/conceito-moveis': {
-      id: '/demo/conceito-moveis'
-      path: '/demo/conceito-moveis'
-      fullPath: '/demo/conceito-moveis'
-      preLoaderRoute: typeof DemoConceitoMoveisRouteImport
+    '/demo/loja-do-boy': {
+      id: '/demo/loja-do-boy'
+      path: '/demo/loja-do-boy'
+      fullPath: '/demo/loja-do-boy'
+      preLoaderRoute: typeof DemoLojaDoBoyRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
