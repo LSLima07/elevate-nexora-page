@@ -84,7 +84,7 @@ export function Hero() {
           </div>
         </div>
 
-        <Button asChild size="lg" className="mt-7 h-auto min-h-14 w-full max-w-sm whitespace-normal rounded-lg bg-primary px-5 py-4 text-base font-bold text-primary-foreground shadow-none hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background">
+        <Button asChild size="lg" className="mt-7 h-auto min-h-14 w-full max-w-[calc(100%-4.5rem)] self-start whitespace-normal rounded-lg bg-primary px-5 py-4 text-base font-bold text-primary-foreground shadow-none hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background sm:max-w-sm sm:self-center">
           <a href={getHeroWhatsappUrl(selectedSegment)} target="_blank" rel="noopener noreferrer" aria-label={`Destravar meu Site de Vendas para ${segment.label} no WhatsApp (abre em nova aba)`}>
             Destravar meu Site de Vendas
             <ArrowUpRight aria-hidden="true" />

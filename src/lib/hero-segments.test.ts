@@ -1,4 +1,5 @@
-import { describe, expect, test } from "bun:test";
+import { describe, test } from "node:test";
+import assert from "node:assert/strict";
 import { getHeroWhatsappUrl } from "./hero-segments";
 
 describe("Hero WhatsApp segment context", () => {
@@ -10,8 +11,8 @@ describe("Hero WhatsApp segment context", () => {
   ] as const) {
     test(`includes ${label} in the NEXORA WhatsApp message`, () => {
       const url = new URL(getHeroWhatsappUrl(id));
-      expect(url.origin + url.pathname).toBe("https://wa.me/5515998130853");
-      expect(url.searchParams.get("text")).toContain(`meu negócio de ${label}.`);
+      assert.equal(url.origin + url.pathname, "https://wa.me/5515998130853");
+      assert.ok(url.searchParams.get("text")?.includes(`meu negócio de ${label}.`));
     });
   }
 });
