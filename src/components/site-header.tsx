@@ -17,7 +17,7 @@ export function SiteHeader() {
             href="#planos"
             className="text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            Serviços
+            Planos
           </a>
           <a
             href="#portfolio"
