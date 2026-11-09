@@ -14,7 +14,7 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-8 md:flex">
           <a
-            href="#planos"
+            href="#orcamento"
             className="text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             Planos
