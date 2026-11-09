@@ -17,7 +17,7 @@ export const PLANS: Plan[] = [
     setup: 297,
     monthly: 49.9,
     forWho: "Para quem quer começar a aparecer na internet.",
-    features: ["Página da sua loja pronta em 5 dias", "Botão direto para o seu WhatsApp", "Hospedagem e segurança inclusas"],
+    features: ["Página da sua loja pronta em 5 dias", "Botão direto para o seu WhatsApp", "Hospedagem e segurança inclusas", "Site rápido no celular", "Domínio próprio (.com.br)"],
   },
   {
     id: "crescimento",
@@ -25,7 +25,7 @@ export const PLANS: Plan[] = [
     setup: 497,
     monthly: 89.9,
     forWho: "Para quem quer ser achado no Google do bairro.",
-    features: ["Tudo do plano Vitrine", "Google Meu Negócio configurado", "Até 30 produtos na vitrine", "1 atualização por mês"],
+    features: ["Tudo do plano Vitrine", "Google Meu Negócio configurado", "Até 30 produtos na vitrine", "1 atualização por mês", "Aparece no mapa da sua cidade"],
     highlight: true,
   },
   {
