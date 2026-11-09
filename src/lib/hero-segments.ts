@@ -21,6 +21,12 @@ export const HERO_SEGMENTS = [
     label: "Serviços Locais",
     preview: "Olá! Encontrei o serviço de manutenção no site e gostaria de um orçamento. Vocês atendem na minha região?",
   },
+  {
+    id: "outro",
+    label: "Outro Negócio 🚀",
+    preview:
+      "Olá! Vi o site da Nexora, tenho uma [Minha Loja] e quero criar meu catálogo digital automatizado no WhatsApp. Como funciona?",
+  },
 ] as const;
 
 export type HeroSegmentId = (typeof HERO_SEGMENTS)[number]["id"];
@@ -30,6 +36,7 @@ export function getHeroSegment(id: HeroSegmentId) {
 }
 
 export function getHeroWhatsappUrl(id: HeroSegmentId) {
+  if (id === "outro") return buildWhatsappUrl(getHeroSegment(id).preview);
   const { label } = getHeroSegment(id);
   return buildWhatsappUrl(
     `Olá, NEXORA! Quero destravar meu Site de Vendas para o meu negócio de ${label}. Gostaria de saber mais sobre a vitrine virtual, o Google Meu Negócio e o suporte.`,
