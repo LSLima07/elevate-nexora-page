@@ -23,4 +23,12 @@ describe("Hero WhatsApp segment context", () => {
       "Olá! Vi o site da Nexora, tenho uma [Minha Loja] e quero criar meu catálogo digital automatizado no WhatsApp. Como funciona?",
     );
   });
+
+  test("Outro Negócio replaces [Minha Loja] with the typed store type", () => {
+    const url = new URL(getHeroWhatsappUrl("outro", "  loja de   roupas "));
+    assert.equal(
+      url.searchParams.get("text"),
+      "Olá! Vi o site da Nexora, tenho uma loja de roupas e quero criar meu catálogo digital automatizado no WhatsApp. Como funciona?",
+    );
+  });
 });

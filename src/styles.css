@@ -141,6 +141,12 @@
   --ring: var(--mint);
 }
 
+@keyframes rocket-lift {
+  0% { transform: translateY(0) rotate(0); }
+  45% { transform: translateY(-6px) rotate(-14deg); }
+  100% { transform: translateY(0) rotate(0); }
+}
+
 @layer utilities {
   .reveal {
     opacity: 0;
@@ -152,8 +158,13 @@
     opacity: 1;
     transform: translateY(0);
   }
+  .rocket-lift {
+    display: inline-block;
+    animation: rocket-lift 450ms ease-out;
+  }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
+    .rocket-lift { animation: none; }
     .reveal { opacity: 1; transform: none; transition: none; }
   }
 }
