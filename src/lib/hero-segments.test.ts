@@ -15,4 +15,12 @@ describe("Hero WhatsApp segment context", () => {
       assert.ok(url.searchParams.get("text")?.includes(`meu negócio de ${label}.`));
     });
   }
+
+  test("Outro Negócio sends the universal catalog message", () => {
+    const url = new URL(getHeroWhatsappUrl("outro"));
+    assert.equal(
+      url.searchParams.get("text"),
+      "Olá! Vi o site da Nexora, tenho uma [Minha Loja] e quero criar meu catálogo digital automatizado no WhatsApp. Como funciona?",
+    );
+  });
 });

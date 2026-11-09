@@ -4,7 +4,7 @@ import { WHATSAPP_QUOTE_URL } from "@/lib/whatsapp";
 
 const quickLinks = [
   { label: "Início", href: "#" },
-  { label: "Serviços", href: "#servicos" },
+  { label: "Planos", href: "#orcamento" },
   { label: "Portfólio", href: "#portfolio" },
 ];
 

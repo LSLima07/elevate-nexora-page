@@ -1,12 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { Hero } from "@/components/hero";
-import { Services } from "@/components/services";
 import { Portfolio } from "@/components/portfolio";
-import { RoiCalculator } from "@/components/roi-calculator";
 import { BeforeAfter } from "@/components/before-after";
 import { Faq, faqs } from "@/components/faq";
-import { ServiceArea } from "@/components/service-area";
 import { Pricing } from "@/components/pricing";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsappFloat } from "@/components/whatsapp-float";
@@ -91,13 +88,10 @@ function Index() {
       <SiteHeader />
       <main id="main-content" tabIndex={-1}>
         <Hero />
-        <Services />
         <Portfolio />
         <BeforeAfter />
         <Pricing />
-        <RoiCalculator />
         <Faq />
-        <ServiceArea />
       </main>
       <SiteFooter />
       <WhatsappFloat />
