@@ -35,8 +35,19 @@ export function getHeroSegment(id: HeroSegmentId) {
   return HERO_SEGMENTS.find((segment) => segment.id === id) ?? HERO_SEGMENTS[0];
 }
 
-export function getHeroWhatsappUrl(id: HeroSegmentId) {
-  if (id === "outro") return buildWhatsappUrl(getHeroSegment(id).preview);
+export const STORE_PLACEHOLDER = "[Minha Loja]";
+export const STORE_TYPE_MAX = 40;
+
+/** Preview text; for "outro" the [Minha Loja] token is replaced by the typed store type. */
+export function getHeroPreview(id: HeroSegmentId, storeType = "") {
+  const { preview } = getHeroSegment(id);
+  if (id !== "outro") return preview;
+  const clean = storeType.replace(/\s+/g, " ").trim().slice(0, STORE_TYPE_MAX);
+  return preview.replace(STORE_PLACEHOLDER, clean || STORE_PLACEHOLDER);
+}
+
+export function getHeroWhatsappUrl(id: HeroSegmentId, storeType = "") {
+  if (id === "outro") return buildWhatsappUrl(getHeroPreview(id, storeType));
   const { label } = getHeroSegment(id);
   return buildWhatsappUrl(
     `Olá, NEXORA! Quero destravar meu Site de Vendas para o meu negócio de ${label}. Gostaria de saber mais sobre a vitrine virtual, o Google Meu Negócio e o suporte.`,

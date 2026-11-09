@@ -3,10 +3,14 @@ import { ArrowUpRight, Check, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   HERO_SEGMENTS,
+  STORE_TYPE_MAX,
+  getHeroPreview,
   getHeroSegment,
   getHeroWhatsappUrl,
   type HeroSegmentId,
 } from "@/lib/hero-segments";
+
+const ROCKET = "🚀";
 
 type NicheQuickSelectorProps = {
   selectedSegment: HeroSegmentId;
@@ -14,11 +18,16 @@ type NicheQuickSelectorProps = {
   previewId: string;
 };
 
-export function NicheQuickSelector({
-  selectedSegment,
-  onSelect,
-  previewId,
-}: NicheQuickSelectorProps) {
+export function NicheQuickSelector({ selectedSegment, onSelect, previewId }: NicheQuickSelectorProps) {
+  // Bumping the key remounts the rocket so its animation replays on every selection.
+  const [rocketKey, setRocketKey] = useState(0);
+
+  function handleSelect(id: HeroSegmentId) {
+    if (typeof navigator !== "undefined" && "vibrate" in navigator) navigator.vibrate?.(10);
+    if (id === "outro") setRocketKey((k) => k + 1);
+    onSelect(id);
+  }
+
   return (
     <fieldset className="w-full min-w-0 border-0 p-0">
       <legend className="mb-3 w-full text-center text-sm font-medium text-muted-foreground">
@@ -27,6 +36,8 @@ export function NicheQuickSelector({
       <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:justify-center">
         {HERO_SEGMENTS.map((segment) => {
           const selected = segment.id === selectedSegment;
+          const isOther = segment.id === "outro";
+          const label = isOther ? segment.label.replace(ROCKET, "").trim() : segment.label;
           return (
             <Button
               key={segment.id}
@@ -34,11 +45,18 @@ export function NicheQuickSelector({
               variant="outline"
               aria-pressed={selected}
               aria-controls={previewId}
-              onClick={() => onSelect(segment.id)}
-              className="h-auto min-h-12 min-w-0 gap-1.5 rounded-lg border-border bg-background px-3 py-3 text-xs text-foreground shadow-none hover:border-primary/60 hover:bg-primary/10 hover:text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background aria-pressed:border-primary aria-pressed:bg-primary/10 aria-pressed:text-primary sm:text-sm"
+              onClick={() => handleSelect(segment.id)}
+              className={`h-auto min-h-12 min-w-0 gap-1.5 rounded-lg bg-background px-3 py-3 text-xs text-foreground shadow-none transition-transform duration-150 active:scale-95 motion-reduce:active:scale-100 hover:border-primary/60 hover:bg-primary/10 hover:text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background aria-pressed:border-primary aria-pressed:bg-primary/10 aria-pressed:text-primary sm:text-sm ${
+                isOther ? "col-span-2 border-dashed border-primary/50 sm:col-span-1" : "border-border"
+              }`}
             >
               <Check aria-hidden="true" className={selected ? "size-4" : "invisible size-4"} />
-              <span className="whitespace-normal text-left leading-snug">{segment.label}</span>
+              <span className="whitespace-normal text-left leading-snug">{label}</span>
+              {isOther && (
+                <span key={rocketKey} aria-hidden="true" className={rocketKey > 0 ? "rocket-lift" : "inline-block"}>
+                  {ROCKET}
+                </span>
+              )}
             </Button>
           );
         })}
@@ -49,10 +67,14 @@ export function NicheQuickSelector({
 
 export function Hero() {
   const [selectedSegment, setSelectedSegment] = useState<HeroSegmentId>("bebidas");
+  const [storeType, setStoreType] = useState("");
   const id = useId();
   const previewId = `${id}-preview`;
   const headingId = `${id}-heading`;
+  const storeInputId = `${id}-store`;
   const segment = getHeroSegment(selectedSegment);
+  const isOther = selectedSegment === "outro";
+  const preview = getHeroPreview(selectedSegment, storeType);
 
   return (
     <section aria-labelledby={headingId} className="conversion-hero bg-background text-foreground">
@@ -71,21 +93,40 @@ export function Hero() {
         <div className="mt-8 w-full max-w-3xl">
           <NicheQuickSelector selectedSegment={selectedSegment} onSelect={setSelectedSegment} previewId={previewId} />
 
+          {isOther && (
+            <div className="mx-auto mt-4 max-w-sm text-left animate-in fade-in slide-in-from-top-1 duration-200">
+              <label htmlFor={storeInputId} className="mb-1.5 block text-sm font-medium">
+                Que tipo de loja?
+              </label>
+              <input
+                id={storeInputId}
+                type="text"
+                value={storeType}
+                onChange={(e) => setStoreType(e.target.value)}
+                maxLength={STORE_TYPE_MAX}
+                placeholder="ex.: loja de roupas"
+                autoComplete="off"
+                aria-describedby={previewId}
+                className="h-12 w-full rounded-lg border border-dashed border-primary/50 bg-background px-4 text-base text-foreground placeholder:text-muted-foreground focus-visible:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              />
+            </div>
+          )}
+
           <div className="mt-5 border-y border-border py-5 text-left">
             <div className="mb-3 flex items-center gap-2 text-xs text-muted-foreground">
               <MessageCircle aria-hidden="true" className="size-4 text-primary" />
               Exemplo de mensagem do seu cliente
             </div>
             <div id={previewId} role="status" aria-live="polite" aria-atomic="true" className="min-h-24 sm:min-h-16">
-              <p className="text-pretty text-base leading-relaxed sm:text-lg">
-                <strong className="font-semibold">“{segment.preview}”</strong>
+              <p key={selectedSegment} className="text-pretty text-base leading-relaxed animate-in fade-in slide-in-from-bottom-1 duration-300 motion-reduce:animate-none sm:text-lg">
+                <strong className="font-semibold">“{preview}”</strong>
               </p>
             </div>
           </div>
         </div>
 
         <Button asChild size="lg" className="mt-7 h-auto min-h-14 w-full max-w-[calc(100%-4.5rem)] self-start whitespace-normal rounded-lg bg-primary px-5 py-4 text-base font-bold text-primary-foreground shadow-none hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background sm:max-w-sm sm:self-center">
-          <a href={getHeroWhatsappUrl(selectedSegment)} target="_blank" rel="noopener noreferrer" aria-label={`Destravar meu Site de Vendas para ${segment.label} no WhatsApp (abre em nova aba)`}>
+          <a href={getHeroWhatsappUrl(selectedSegment, storeType)} target="_blank" rel="noopener noreferrer" aria-label={`Destravar meu Site de Vendas para ${segment.label.replace(ROCKET, "").trim()} no WhatsApp (abre em nova aba)`}>
             Destravar meu Site de Vendas
             <ArrowUpRight aria-hidden="true" />
           </a>
