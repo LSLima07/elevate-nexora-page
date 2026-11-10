@@ -21,7 +21,7 @@ export function RoiCalculator() {
     <section
       id="calculadora"
       aria-labelledby="roi-title"
-      className="relative overflow-hidden border-t border-white/5 py-24 md:py-32"
+      className="relative overflow-hidden border-t border-foreground/5 py-24 md:py-32"
     >
       <div
         aria-hidden
@@ -29,7 +29,7 @@ export function RoiCalculator() {
       />
       <div className="relative mx-auto max-w-5xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
+          <span className="inline-flex items-center gap-2 rounded-full border border-foreground/10 bg-foreground/5 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--neon-green)]" />
             Calculadora de retorno
           </span>
@@ -51,7 +51,7 @@ export function RoiCalculator() {
 
         <div
           ref={ref}
-          className={`reveal ${visible ? "reveal-in" : ""} mt-14 grid gap-6 rounded-2xl border border-white/10 bg-[var(--midnight)]/60 p-6 md:grid-cols-[1.1fr_1fr] md:p-8`}
+          className={`reveal ${visible ? "reveal-in" : ""} mt-14 grid gap-6 rounded-2xl border border-foreground/10 bg-[var(--midnight)]/60 p-6 md:grid-cols-[1.1fr_1fr] md:p-8`}
         >
           <div className="space-y-8">
             <div>

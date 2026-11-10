@@ -23,7 +23,7 @@ export function Pricing() {
               aria-labelledby={`plano-${plan.id}`}
               style={{ transitionDelay: `${i * 120}ms` }}
               className={`reveal ${visible ? "reveal-in" : ""} relative flex flex-col rounded-2xl border bg-card p-7 ${
-                plan.highlight ? "border-primary shadow-[0_20px_60px_-30px_rgba(74,222,128,0.45)]" : "border-border"
+                plan.highlight ? "border-primary shadow-[0_20px_60px_-30px_rgba(11,19,43,0.12)]" : "border-border"
               }`}
             >
               {plan.highlight && (

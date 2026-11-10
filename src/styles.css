@@ -4,12 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/*
- * NEXORA design system — Dark mode obrigatório.
- * Paleta: Deep Background #070A14, Midnight Navy #0B1020,
- * Tech Blue #2D8CFF, Cyan #00E5FF, Electric Purple #7A3CFF,
- * Neon Green #00F5A0 (CTA).
- */
+/* Klique design system — claro, marinho profundo e coral. */
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -59,58 +54,66 @@
   --color-neon-green: var(--neon-green);
   --color-mint: var(--mint);
   --color-smoked-ebony: var(--smoked-ebony);
+  --color-navy: var(--navy);
+  --color-coral: var(--coral);
+  --color-surface: var(--surface);
+  --shadow-soft: var(--shadow-soft);
+  --shadow-coral: var(--shadow-coral);
   --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-logo: "Sora", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 1rem;
 
-  /* Brand raw tokens */
-  /* Identidade MEI: Smoked Ebony + Mint (nomes antigos mantidos como aliases) */
-  --midnight: #16181f;
-  --deep-bg: #0d0e12;
-  --tech-blue: #38bdf8;
-  --cyan: #5eead4;
-  --electric-purple: #22c55e;
-  --neon-green: #4ade80;
-  --mint: #4ade80;
-  --smoked-ebony: #0d0e12;
+  /* Klique — claro, marinho profundo + coral. Nomes antigos viram aliases. */
+  --navy: #0b132b;
+  --coral: #ff5a3d;
+  --surface: #f9fafb;
+  --midnight: #f9fafb;
+  --deep-bg: #ffffff;
+  --tech-blue: #0b132b;
+  --cyan: #ff5a3d;
+  --electric-purple: #0b132b;
+  --neon-green: #ff5a3d;
+  --mint: #ff5a3d;
+  --smoked-ebony: #ffffff;
 
-  /* Semantic — dark by default (dark mode obrigatório) */
-  --background: var(--deep-bg);
-  --foreground: oklch(0.98 0.005 240);
-  --card: var(--midnight);
-  --card-foreground: oklch(0.98 0.005 240);
-  --popover: var(--midnight);
-  --popover-foreground: oklch(0.98 0.005 240);
-  --primary: var(--neon-green);
-  --primary-foreground: #06140c;
-  --secondary: oklch(1 0 0 / 6%);
-  --secondary-foreground: oklch(0.98 0.005 240);
-  --muted: oklch(1 0 0 / 4%);
-  --muted-foreground: oklch(0.72 0.02 240);
-  --accent: var(--cyan);
-  --accent-foreground: #06140c;
-  --destructive: oklch(0.65 0.22 25);
-  --destructive-foreground: oklch(0.98 0.005 240);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: var(--mint);
-  --chart-1: var(--tech-blue);
-  --chart-2: var(--cyan);
-  --chart-3: var(--electric-purple);
-  --chart-4: var(--neon-green);
-  --chart-5: oklch(0.7 0.15 260);
-  --sidebar: var(--midnight);
-  --sidebar-foreground: oklch(0.98 0.005 240);
-  --sidebar-primary: var(--neon-green);
-  --sidebar-primary-foreground: #06140c;
-  --sidebar-accent: oklch(1 0 0 / 6%);
-  --sidebar-accent-foreground: oklch(0.98 0.005 240);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: var(--cyan);
+  --background: #ffffff;
+  --foreground: var(--navy);
+  --card: #ffffff;
+  --card-foreground: var(--navy);
+  --popover: #ffffff;
+  --popover-foreground: var(--navy);
+  --primary: var(--coral);
+  --primary-foreground: #ffffff;
+  --secondary: var(--surface);
+  --secondary-foreground: var(--navy);
+  --muted: var(--surface);
+  --muted-foreground: #4b5368;
+  --accent: #fff1ee;
+  --accent-foreground: var(--navy);
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: var(--coral);
+  --chart-1: var(--navy);
+  --chart-2: var(--coral);
+  --chart-3: #4b5368;
+  --chart-4: #ffb4a6;
+  --chart-5: #9ca3af;
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--navy);
+  --sidebar-primary: var(--coral);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--surface);
+  --sidebar-accent-foreground: var(--navy);
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: var(--coral);
+  --shadow-soft: 0 1px 2px rgb(11 19 43 / 0.04), 0 12px 32px -12px rgb(11 19 43 / 0.12);
+  --shadow-coral: 0 10px 24px -10px rgb(255 90 61 / 0.55);
 }
 
 @layer base {

@@ -5,17 +5,17 @@ export function buildWhatsappUrl(message: string) {
 }
 
 export const QUOTE_MESSAGE =
-  "Olá! Gostaria de um orçamento para um projeto na NEXORA.";
+  "Olá! Gostaria de um orçamento para um projeto na Klique.";
 
 /** Link padrão para CTAs de ação direta (orçamento). */
 export const WHATSAPP_QUOTE_URL = buildWhatsappUrl(QUOTE_MESSAGE);
 
 /** CTA principal do Hero — diagnóstico gratuito. */
 export const DIAGNOSIS_MESSAGE =
-  "Olá! Gostaria de agendar o diagnóstico gratuito para a minha empresa com os especialistas da NEXORA.";
+  "Olá! Gostaria de agendar o diagnóstico gratuito para a minha empresa com os especialistas da Klique.";
 export const WHATSAPP_DIAGNOSIS_URL = buildWhatsappUrl(DIAGNOSIS_MESSAGE);
 
 /** Botão flutuante — dúvidas gerais. */
 export const SUPPORT_MESSAGE =
-  "Olá! Estava navegando no site da NEXORA e gostaria de tirar uma dúvida sobre os serviços de vocês.";
+  "Olá! Estava navegando no site da Klique e gostaria de tirar uma dúvida sobre os serviços de vocês.";
 export const WHATSAPP_SUPPORT_URL = buildWhatsappUrl(SUPPORT_MESSAGE);

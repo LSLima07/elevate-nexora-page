@@ -9,7 +9,7 @@ describe("Hero WhatsApp segment context", () => {
     ["alimentacao", "Alimentação & Açaí"],
     ["servicos", "Serviços Locais"],
   ] as const) {
-    test(`includes ${label} in the NEXORA WhatsApp message`, () => {
+    test(`includes ${label} in the Klique WhatsApp message`, () => {
       const url = new URL(getHeroWhatsappUrl(id));
       assert.equal(url.origin + url.pathname, "https://wa.me/5515998130853");
       assert.ok(url.searchParams.get("text")?.includes(`meu negócio de ${label}.`));
@@ -20,7 +20,7 @@ describe("Hero WhatsApp segment context", () => {
     const url = new URL(getHeroWhatsappUrl("outro"));
     assert.equal(
       url.searchParams.get("text"),
-      "Olá! Vi o site da Nexora, tenho uma [Minha Loja] e quero criar meu catálogo digital automatizado no WhatsApp. Como funciona?",
+      "Olá! Vi o site da Klique, tenho uma [Minha Loja] e quero criar meu catálogo digital automatizado no WhatsApp. Como funciona?",
     );
   });
 
@@ -28,7 +28,7 @@ describe("Hero WhatsApp segment context", () => {
     const url = new URL(getHeroWhatsappUrl("outro", "  loja de   roupas "));
     assert.equal(
       url.searchParams.get("text"),
-      "Olá! Vi o site da Nexora, tenho uma loja de roupas e quero criar meu catálogo digital automatizado no WhatsApp. Como funciona?",
+      "Olá! Vi o site da Klique, tenho uma loja de roupas e quero criar meu catálogo digital automatizado no WhatsApp. Como funciona?",
     );
   });
 });

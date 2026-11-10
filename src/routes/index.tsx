@@ -15,9 +15,9 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "NEXORA | Sites de Vendas para Negócios Locais" },
-      { name: "description", content: "Vitrine virtual, Google Meu Negócio e pedidos pelo WhatsApp para MEIs e negócios locais. Conheça a NEXORA." },
-      { property: "og:title", content: "NEXORA | Sites de Vendas para Negócios Locais" },
+      { title: "Klique | Sites de Vendas para Negócios Locais" },
+      { name: "description", content: "Vitrine virtual, Google Meu Negócio e pedidos pelo WhatsApp para MEIs e negócios locais. Conheça a Klique." },
+      { property: "og:title", content: "Klique | Sites de Vendas para Negócios Locais" },
       { property: "og:description", content: "Vitrine virtual, presença local no Google e atendimento pelo WhatsApp para o seu comércio." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -26,10 +26,10 @@ export const Route = createFileRoute("/")({
       { property: "og:image:type", content: "image/png" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "NEXORA — Transformamos confiança em crescimento" },
+      { property: "og:image:alt", content: "Klique — Transformamos confiança em crescimento" },
       { property: "og:url", content: SITE_URL + "/" },
       { name: "twitter:image", content: OG_IMAGE },
-      { name: "twitter:image:alt", content: "NEXORA — Transformamos confiança em crescimento" },
+      { name: "twitter:image:alt", content: "Klique — Transformamos confiança em crescimento" },
     ],
     links: [{ rel: "canonical", href: SITE_URL + "/" }],
     scripts: [
@@ -38,7 +38,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          name: "NEXORA - Agência de Desenvolvimento Web e SEO Local",
+          name: "Klique - Agência de Desenvolvimento Web e SEO Local",
           description:
             "Criação de sites de alta conversão, landing pages e presença no Google para comércios e empresas locais.",
           url: SITE_URL,

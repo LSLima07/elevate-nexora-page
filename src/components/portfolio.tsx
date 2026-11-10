@@ -1,185 +1,100 @@
-import { WHATSAPP_QUOTE_URL } from "@/lib/whatsapp";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CupSoda, Gift } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
-import { Link } from "@tanstack/react-router";
+import { buildWhatsappUrl } from "@/lib/whatsapp";
 
 type Project = {
-  niche: string;
-  nicheAccent: "cyan" | "purple";
   name: string;
-  subtitle?: string;
-  problem: string;
-  solution: string;
-  demoTo?: string;
+  niche: string;
+  city: string;
+  icon: LucideIcon;
+  description: string;
+  highlights: string[];
 };
 
 const projects: Project[] = [
   {
-    niche: "Varejo & Importados",
-    nicheAccent: "cyan",
-    name: "Loja do Boy — Vitrine de Importados",
-    problem:
-      "Falta de clareza nas novidades e promoções antes do cliente ir até a loja.",
-    solution:
-      "Landing Page estilo vitrine digital dinâmica, focada em apresentar lançamentos e direcionar o cliente direto para o fechamento no WhatsApp.",
-    demoTo: "/demo/loja-do-boy",
+    name: "Ultra Shake",
+    niche: "Delivery",
+    city: "Angatuba",
+    icon: CupSoda,
+    description:
+      "Vitrine de delivery responsiva com sistema de pedidos direto para o WhatsApp.",
+    highlights: ["Cardápio com fotos e preços", "Pedido montado em poucos toques", "Mensagem pronta no WhatsApp"],
   },
   {
-    niche: "Serviços Automotivos",
-    nicheAccent: "purple",
-    name: "Ginez Autopeças & Troca de Óleo — Loja Virtual e Agendamento",
-    subtitle:
-      "Site de alta conversão para autopeças, troca de óleo e serviços automotivos em Angatuba e Itapetininga.",
-    problem:
-      "Dificuldade em exibir o estoque de peças, agendar troca de óleo e transmitir confiança instantânea no atendimento online.",
-    solution:
-      "Website moderno focado em localização, agendamento direto via WhatsApp e catálogo de serviços rápido.",
-    demoTo: "/demo/ginez-autopecas",
-  },
-  {
-    niche: "Casa & Decoração",
-    nicheAccent: "cyan",
-    name: "Conceito Móveis e Decorações — Catálogo Digital & Atendimento Premium",
-    subtitle:
-      "Vitrine virtual interativa para móveis de alto padrão e projetos de ambientes em Sorocaba.",
-    problem:
-      "Atendimento lento em canais tradicionais e perda de clientes por falta de um catálogo online interativo com fotos e preços transparentes.",
-    solution:
-      "Catálogo digital elegante com navegação por ambientes (Salas, Quartos, Varandas), orçamento direto no WhatsApp e simulação de prazos.",
-    demoTo: "/demo/conceito-moveis",
+    name: "Brinquedos & Cia",
+    niche: "Presentes",
+    city: "Angatuba",
+    icon: Gift,
+    description:
+      "Catálogo dinâmico de presentes com filtros interativos por categorias.",
+    highlights: ["Filtros por idade e categoria", "Catálogo sempre atualizado", "Atendimento direto no WhatsApp"],
   },
 ];
 
 export function Portfolio() {
   return (
-    <section
-      id="portfolio"
-      className="relative overflow-hidden border-t border-white/5 py-24 md:py-32"
-    >
-      {/* Ambient glow */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-32 right-0 h-[420px] w-[420px] rounded-full bg-[var(--electric-purple)]/15 blur-[140px]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-32 left-0 h-[420px] w-[420px] rounded-full bg-[var(--cyan)]/10 blur-[140px]"
-      />
-
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="portfolio" aria-labelledby="portfolio-title" className="bg-surface py-20 md:py-28">
+      <div className="mx-auto max-w-5xl px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
-            <span className="h-1.5 w-1.5 rounded-full bg-[var(--electric-purple)]" />
-            Portfólio
-          </span>
-          <h2 className="mt-6 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-foreground md:text-5xl">
-            Soluções Digitais em{" "}
-            <span className="bg-gradient-to-r from-[var(--cyan)] via-[var(--tech-blue)] to-[var(--electric-purple)] bg-clip-text text-transparent">
-              Ação
-            </span>
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Casos de sucesso</span>
+          <h2 id="portfolio-title" className="mt-4 text-balance font-display text-3xl font-extrabold md:text-4xl">
+            Comércios de Angatuba que já vendem pelo WhatsApp
           </h2>
-          <p className="mt-5 text-base text-muted-foreground md:text-lg">
-            Projetos concebidos sob medida para transformar as maiores dores de
-            empresas locais em resultados reais.
+          <p className="mt-4 text-muted-foreground">
+            Vitrines reais, criadas para o dia a dia de quem atende no balcão.
           </p>
         </div>
-
-        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => {
-            const accentColor =
-              project.nicheAccent === "cyan"
-                ? "var(--cyan)"
-                : "var(--electric-purple)";
-
-            return (
-              <ProjectCard key={project.name} project={project} accentColor={accentColor} index={index} />
-            );
-          })}
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          {projects.map((p, i) => (
+            <ProjectCard key={p.name} project={p} index={i} />
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-function ProjectCard({
-  project,
-  accentColor,
-  index,
-}: {
-  project: Project;
-  accentColor: string;
-  index: number;
-}) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   const { ref, visible } = useReveal<HTMLElement>();
+  const Icon = project.icon;
+  const url = buildWhatsappUrl(
+    `Olá! Vi o case ${project.name} no site da Klique e quero uma vitrine parecida para a minha loja.`,
+  );
   return (
     <article
       ref={ref}
-      className={`reveal ${visible ? "reveal-in" : ""} group relative flex flex-col rounded-2xl border border-[var(--midnight)] bg-[var(--deep-bg)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_24px_70px_-30px_rgba(74,222,128,0.25)]`}
       style={{ transitionDelay: visible ? `${index * 140}ms` : "0ms" }}
+      className={`reveal ${visible ? "reveal-in" : ""} flex flex-col rounded-3xl border border-border bg-card p-8 shadow-soft transition-transform duration-300 hover:-translate-y-1`}
     >
-                <div
-                  className="inline-flex w-fit items-center rounded-full border px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em]"
-                  style={{
-                    color: accentColor,
-                    backgroundColor: "color-mix(in oklab, var(--mint) 10%, transparent)",
-                    borderColor: `${accentColor}33`,
-                  }}
-                >
-                  {project.niche}
-                </div>
-
-                <h3 className="mt-5 font-display text-xl font-bold leading-tight tracking-tight text-foreground">
-                  {project.name}
-                </h3>
-                {project.subtitle ? (
-                  <p className="mt-2 text-sm leading-relaxed text-foreground/60">
-                    {project.subtitle}
-                  </p>
-                ) : null}
-
-                <div className="mt-5 space-y-4">
-                  <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground/60">
-                      Problema
-                    </p>
-                    <p className="mt-1.5 text-sm leading-relaxed text-foreground/80">
-                      {project.problem}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground/60">
-                      Solução NEXORA
-                    </p>
-                    <p
-                      className="mt-1.5 text-sm leading-relaxed"
-                      style={{ color: "var(--muted-foreground)", fontFamily: "var(--font-sans)" }}
-                    >
-                      {project.solution}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-7 border-t border-white/5 pt-5">
-                  {project.demoTo ? (
-                    <Link
-                      to={project.demoTo}
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--cyan)] transition-colors hover:text-[var(--neon-green)]"
-                    >
-                      Conhecer Solução
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                  ) : (
-                  <a
-                    href={WHATSAPP_QUOTE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--cyan)] transition-colors hover:text-[var(--neon-green)]"
-                  >
-                    Conhecer Solução
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </a>
-                  )}
-                </div>
+      <div className="flex items-center justify-between">
+        <span className="grid size-12 place-items-center rounded-2xl bg-accent text-primary">
+          <Icon aria-hidden="true" className="size-6" />
+        </span>
+        <span className="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground">
+          {project.niche} • {project.city}
+        </span>
+      </div>
+      <h3 className="mt-6 font-display text-2xl font-bold">{project.name}</h3>
+      <p className="mt-2 leading-relaxed text-muted-foreground">{project.description}</p>
+      <ul className="mt-6 flex-1 space-y-2 text-sm">
+        {project.highlights.map((h) => (
+          <li key={h} className="flex items-center gap-2">
+            <span aria-hidden="true" className="size-1.5 rounded-full bg-primary" />
+            {h}
+          </li>
+        ))}
+      </ul>
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-8 inline-flex w-fit items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold transition-transform hover:border-primary hover:text-primary active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      >
+        Quero uma assim
+        <ArrowRight aria-hidden="true" className="size-4" />
+      </a>
     </article>
   );
 }

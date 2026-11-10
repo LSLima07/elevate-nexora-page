@@ -51,7 +51,7 @@ export function Services() {
 
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.2em] text-cyan/80">
+          <span className="inline-flex items-center gap-2 rounded-full border border-foreground/10 bg-foreground/5 px-3 py-1 text-xs uppercase tracking-[0.2em] text-cyan/80">
             <span className="h-1.5 w-1.5 rounded-full bg-cyan animate-pulse" />
             Serviços
           </span>
@@ -99,7 +99,7 @@ function ServiceCard({
   return (
     <article
       ref={ref}
-      className={`reveal ${visible ? "reveal-in" : ""} group relative rounded-2xl border border-white/10 bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_20px_60px_-30px_rgba(74,222,128,0.25)] md:p-10`}
+      className={`reveal ${visible ? "reveal-in" : ""} group relative rounded-2xl border border-foreground/10 bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/20 hover:shadow-[0_20px_60px_-30px_rgba(11,19,43,0.12)] md:p-10`}
       style={{ transitionDelay: visible ? `${index * 120}ms` : "0ms" }}
     >
               <div
