@@ -19,12 +19,12 @@ export function ServiceArea() {
       <div className="mx-auto max-w-6xl px-6">
         <div
           ref={ref}
-          className={`grid gap-10 rounded-3xl border border-white/10 bg-[var(--midnight)]/60 p-8 transition-all duration-700 md:grid-cols-2 md:p-10 ${
+          className={`grid gap-10 rounded-3xl border border-foreground/10 bg-[var(--midnight)]/60 p-8 transition-all duration-700 md:grid-cols-2 md:p-10 ${
             visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
           }`}
         >
           <div className="flex flex-col justify-center">
-            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-foreground/10 bg-foreground/[0.03] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
               <MapPin className="h-3.5 w-3.5 text-cyan" />
               SEO Local
             </span>
@@ -47,7 +47,7 @@ export function ServiceArea() {
               {cities.map((city) => (
                 <li
                   key={city}
-                  className="rounded-full border border-white/10 bg-white/[0.02] px-3 py-1.5 text-xs text-muted-foreground"
+                  className="rounded-full border border-foreground/10 bg-foreground/[0.02] px-3 py-1.5 text-xs text-muted-foreground"
                 >
                   {city}
                 </li>
@@ -61,7 +61,7 @@ export function ServiceArea() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-all hover:shadow-[0_0_32px_-6px_var(--neon-green)] active:scale-[0.98]"
               >
-                Falar com a NEXORA
+                Falar com a Klique
               </a>
               <span className="inline-flex items-center gap-2 text-xs text-muted-foreground">
                 <Monitor className="h-4 w-4 text-cyan" />
@@ -70,9 +70,9 @@ export function ServiceArea() {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-2xl border border-white/10">
+          <div className="relative overflow-hidden rounded-2xl border border-foreground/10">
             <iframe
-              title="Mapa da área de atendimento da NEXORA — Itapetininga, Angatuba e região"
+              title="Mapa da área de atendimento da Klique — Itapetininga, Angatuba e região"
               src={MAP_SRC}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

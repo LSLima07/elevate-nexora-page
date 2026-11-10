@@ -56,15 +56,15 @@ export const Route = createFileRoute("/demo/conceito-moveis")({
   component: ConceitoDemo,
   head: () => ({
     meta: [
-      { title: "Demonstração Conceito Móveis | Catálogo Digital NEXORA" },
+      { title: "Demonstração Conceito Móveis | Catálogo Digital Klique" },
       {
         name: "description",
         content:
-          "Demonstração interativa do catálogo digital criado pela NEXORA para a Conceito Móveis e Decorações, em Sorocaba - SP.",
+          "Demonstração interativa do catálogo digital criado pela Klique para a Conceito Móveis e Decorações, em Sorocaba - SP.",
       },
       { name: "robots", content: "noindex" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "Demonstração Conceito Móveis | Catálogo Digital NEXORA" },
+      { property: "og:title", content: "Demonstração Conceito Móveis | Catálogo Digital Klique" },
       {
         property: "og:description",
         content:
@@ -106,12 +106,12 @@ export const Route = createFileRoute("/demo/conceito-moveis")({
 function ConceitoDemo() {
   return (
     <div className="min-h-screen bg-[#141210] text-[#F4EDE4]">
-      {/* Barra NEXORA */}
+      {/* Barra Klique */}
       <div className="sticky top-0 z-40 border-b border-white/10 bg-[#070A14]/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--cyan)]">
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--neon-green)]" />
-            Demonstração Interativa NEXORA
+            Demonstração Interativa Klique
           </span>
           <Link
             to="/"
@@ -119,7 +119,7 @@ function ConceitoDemo() {
             className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-white/80 transition-colors hover:border-white/30 hover:text-white"
           >
             <ArrowLeft className="h-4 w-4" />
-            Voltar para o site da Nexora
+            Voltar para o site da Klique
           </Link>
         </div>
       </div>
@@ -319,7 +319,7 @@ function ConceitoDemo() {
           <div className="mx-auto max-w-6xl px-4 py-10 text-center sm:px-6">
             <p className="text-sm text-[#F4EDE4]/60">
               Esta é uma demonstração criada pela{" "}
-              <span className="font-semibold text-[var(--cyan)]">NEXORA</span> para
+              <span className="font-semibold text-[var(--cyan)]">Klique</span> para
               ilustrar um catálogo digital premium.
             </p>
             <Link

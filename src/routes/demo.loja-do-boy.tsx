@@ -46,19 +46,19 @@ export const Route = createFileRoute("/demo/loja-do-boy")({
   component: LojaDoBoyDemo,
   head: () => ({
     meta: [
-      { title: "Demonstração Loja do Boy | Vitrine Digital NEXORA" },
+      { title: "Demonstração Loja do Boy | Vitrine Digital Klique" },
       {
         name: "description",
         content:
-          "Demonstração interativa da vitrine digital criada pela NEXORA para a Loja do Boy: importados, eletrônicos e acessórios com pedido direto no WhatsApp.",
+          "Demonstração interativa da vitrine digital criada pela Klique para a Loja do Boy: importados, eletrônicos e acessórios com pedido direto no WhatsApp.",
       },
       { name: "robots", content: "noindex" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "Demonstração Loja do Boy | Vitrine Digital NEXORA" },
+      { property: "og:title", content: "Demonstração Loja do Boy | Vitrine Digital Klique" },
       {
         property: "og:description",
         content:
-          "Veja na prática uma vitrine digital NEXORA: produtos, preços e pedido direto no WhatsApp.",
+          "Veja na prática uma vitrine digital Klique: produtos, preços e pedido direto no WhatsApp.",
       },
       {
         property: "og:url",
@@ -139,12 +139,12 @@ function BoyMascot() {
 function LojaDoBoyPage() {
   return (
     <div className="min-h-screen bg-[#0A0A0B] text-white">
-      {/* Barra NEXORA */}
+      {/* Barra Klique */}
       <div className="sticky top-0 z-40 border-b border-white/10 bg-[#070A14]/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--cyan)]">
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--neon-green)]" />
-            Demonstração Interativa NEXORA
+            Demonstração Interativa Klique
           </span>
           <Link
             to="/"
@@ -152,7 +152,7 @@ function LojaDoBoyPage() {
             className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-white/80 transition-colors hover:border-white/30 hover:text-white"
           >
             <ArrowLeft className="h-4 w-4" />
-            Voltar para o site da Nexora
+            Voltar para o site da Klique
           </Link>
         </div>
       </div>
@@ -264,7 +264,7 @@ function LojaDoBoyPage() {
           <div className="mx-auto max-w-6xl px-4 py-10 text-center sm:px-6">
             <p className="text-sm text-white/60">
               Esta é uma demonstração fictícia criada pela{" "}
-              <span className="font-semibold text-[var(--cyan)]">NEXORA</span> para
+              <span className="font-semibold text-[var(--cyan)]">Klique</span> para
               ilustrar uma vitrine digital.
             </p>
             <Link

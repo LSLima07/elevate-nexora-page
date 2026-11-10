@@ -43,6 +43,6 @@ export const formatBRL = (v: number) =>
 
 export function getPlanWhatsappUrl(plan: Plan) {
   return buildWhatsappUrl(
-    `Olá! Tenho interesse no plano ${plan.name} da NEXORA (${formatBRL(plan.monthly)}/mês). Pode me explicar como começar?`,
+    `Olá! Tenho interesse no plano ${plan.name} da Klique (${formatBRL(plan.monthly)}/mês). Pode me explicar como começar?`,
   );
 }

@@ -38,7 +38,7 @@ const quoteSchema = z.object({
 type FieldErrors = Partial<Record<keyof z.infer<typeof quoteSchema>, string>>;
 
 const fieldClass =
-  "w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/70 outline-none transition-colors focus:border-cyan/50 focus:ring-2 focus:ring-cyan/20";
+  "w-full rounded-xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/70 outline-none transition-colors focus:border-cyan/50 focus:ring-2 focus:ring-cyan/20";
 
 export function QuoteForm() {
   const { ref, visible } = useReveal<HTMLDivElement>();
@@ -106,7 +106,7 @@ export function QuoteForm() {
           }`}
         >
           <div className="text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+            <span className="inline-flex items-center gap-2 rounded-full border border-foreground/10 bg-foreground/[0.03] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
               Orçamento rápido
             </span>
             <h2
@@ -124,7 +124,7 @@ export function QuoteForm() {
             </p>
           </div>
 
-          <div className="mt-10 rounded-3xl border border-white/10 bg-[var(--midnight)]/60 p-6 md:p-9">
+          <div className="mt-10 rounded-3xl border border-foreground/10 bg-[var(--midnight)]/60 p-6 md:p-9">
             {sent ? (
               <div
                 role="status"
@@ -142,7 +142,7 @@ export function QuoteForm() {
                 <button
                   type="button"
                   onClick={() => setSent(false)}
-                  className="mt-2 inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 text-sm font-medium text-foreground/90 transition-colors hover:border-cyan/40 hover:text-cyan"
+                  className="mt-2 inline-flex items-center rounded-full border border-foreground/10 bg-foreground/[0.03] px-5 py-2.5 text-sm font-medium text-foreground/90 transition-colors hover:border-cyan/40 hover:text-cyan"
                 >
                   Enviar outra solicitação
                 </button>
@@ -253,7 +253,7 @@ export function QuoteForm() {
                     />
                     <span>
                       Concordo em compartilhar meus dados para contato comercial da
-                      NEXORA.
+                      Klique.
                     </span>
                   </label>
                   {consentError ? (
@@ -265,7 +265,7 @@ export function QuoteForm() {
 
                 <button
                   type="submit"
-                  className="group mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground shadow-[0_0_0_1px_rgba(0,245,160,0.35)] transition-all hover:shadow-[0_0_40px_-6px_var(--neon-green)] active:scale-[0.98]"
+                  className="group mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground shadow-[0_0_0_1px_rgba(11,19,43,0.12)] transition-all hover:shadow-[0_0_40px_-6px_var(--neon-green)] active:scale-[0.98]"
                 >
                   Solicitar Orçamento Gratuito
                   <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

@@ -54,7 +54,7 @@ export function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="relative overflow-hidden border-t border-white/5 py-24 md:py-32"
+      className="relative overflow-hidden border-t border-foreground/5 py-24 md:py-32"
     >
       {/* Ambient glow */}
       <div
@@ -68,7 +68,7 @@ export function Portfolio() {
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
+          <span className="inline-flex items-center gap-2 rounded-full border border-foreground/10 bg-foreground/5 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--electric-purple)]" />
             Portfólio
           </span>
@@ -114,7 +114,7 @@ function ProjectCard({
   return (
     <article
       ref={ref}
-      className={`reveal ${visible ? "reveal-in" : ""} group relative flex flex-col rounded-2xl border border-[var(--midnight)] bg-[var(--deep-bg)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_24px_70px_-30px_rgba(74,222,128,0.25)]`}
+      className={`reveal ${visible ? "reveal-in" : ""} group relative flex flex-col rounded-2xl border border-[var(--midnight)] bg-[var(--deep-bg)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/20 hover:shadow-[0_24px_70px_-30px_rgba(11,19,43,0.12)]`}
       style={{ transitionDelay: visible ? `${index * 140}ms` : "0ms" }}
     >
                 <div
@@ -148,7 +148,7 @@ function ProjectCard({
                   </div>
                   <div>
                     <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground/60">
-                      Solução NEXORA
+                      Solução Klique
                     </p>
                     <p
                       className="mt-1.5 text-sm leading-relaxed"
@@ -159,7 +159,7 @@ function ProjectCard({
                   </div>
                 </div>
 
-                <div className="mt-7 border-t border-white/5 pt-5">
+                <div className="mt-7 border-t border-foreground/5 pt-5">
                   {project.demoTo ? (
                     <Link
                       to={project.demoTo}
