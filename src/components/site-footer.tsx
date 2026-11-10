@@ -19,7 +19,7 @@ export function SiteFooter() {
   return (
     <footer
       id="contato"
-      className="relative border-t border-[var(--midnight)] bg-[var(--deep-bg)]"
+      className="relative border-t border-border bg-surface"
     >
       <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-3">
@@ -30,7 +30,8 @@ export function SiteFooter() {
               <span className="ml-0.5 text-cyan">.</span>
             </div>
             <p className="max-w-xs text-sm text-muted-foreground">
-              Transformamos confiança em crescimento.
+              <strong className="font-semibold text-foreground">Klique • Soluções Digitais em Angatuba.</strong>{" "}
+              Transformando o comércio local com tecnologia humana.
             </p>
             <p className="text-xs text-muted-foreground/70">
               © 2026 Klique. Todos os direitos reservados.
