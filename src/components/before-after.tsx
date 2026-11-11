@@ -81,7 +81,7 @@ export function BeforeAfter() {
           <div
             role="tablist"
             aria-label="Comparar cenários"
-            className="mx-auto flex w-fit rounded-full border border-foreground/10 bg-foreground/5 p-1"
+            className="mx-auto flex w-fit rounded-full border border-border bg-surface p-1"
           >
             {modes.map((key) => (
               <button
@@ -102,7 +102,7 @@ export function BeforeAfter() {
                 tabIndex={mode === key ? 0 : -1}
                 onKeyDown={onTabKeyDown}
                 onClick={() => selectMode(key)}
-                className={`min-h-11 rounded-full px-5 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cyan)] ${
+                className={`min-h-11 rounded-full px-5 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${
                   mode === key
                     ? key === "antes"
                       ? "bg-foreground/10 text-foreground"
