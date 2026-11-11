@@ -1,7 +1,7 @@
 import { ArrowRight, CupSoda, Gift } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
-import { buildWhatsappUrl } from "@/lib/whatsapp";
+import { Button } from "@/components/ui/button";
 
 type Project = {
   name: string;
@@ -10,6 +10,7 @@ type Project = {
   icon: LucideIcon;
   description: string;
   highlights: string[];
+  url: string;
 };
 
 const projects: Project[] = [
@@ -20,7 +21,8 @@ const projects: Project[] = [
     icon: CupSoda,
     description:
       "Vitrine de delivery responsiva com sistema de pedidos direto para o WhatsApp.",
-    highlights: ["Cardápio com fotos e preços", "Pedido montado em poucos toques", "Mensagem pronta no WhatsApp"],
+    highlights: ["Cardápio enxuto de 500ml", "Endereço obrigatório no checkout", "Pagamento (Pix, Cartão e Troco)"],
+    url: "https://ultra-shake-a-a.vercel.app",
   },
   {
     name: "Brinquedos & Cia",
@@ -29,7 +31,8 @@ const projects: Project[] = [
     icon: Gift,
     description:
       "Catálogo dinâmico de presentes com filtros interativos por categorias.",
-    highlights: ["Filtros por idade e categoria", "Catálogo sempre atualizado", "Atendimento direto no WhatsApp"],
+    highlights: ["Grid rápido de 2 colunas", "Filtros por categoria e idade", "Aviso de produtos esgotados"],
+    url: "https://brinquedos-cia.vercel.app",
   },
 ];
 
@@ -59,17 +62,14 @@ export function Portfolio() {
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const { ref, visible } = useReveal<HTMLElement>();
   const Icon = project.icon;
-  const url = buildWhatsappUrl(
-    `Olá! Vi o case ${project.name} no site da Klique e quero uma vitrine parecida para a minha loja.`,
-  );
   return (
     <article
       ref={ref}
       style={{ transitionDelay: visible ? `${index * 140}ms` : "0ms" }}
       className={`reveal ${visible ? "reveal-in" : ""} flex flex-col rounded-3xl border border-border bg-card p-8 shadow-soft transition-transform duration-300 hover:-translate-y-1`}
     >
-      <div className="flex items-center justify-between">
-        <span className="grid size-12 place-items-center rounded-2xl bg-accent text-primary">
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
+        <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-accent text-primary">
           <Icon aria-hidden="true" className="size-6" />
         </span>
         <span className="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground">
@@ -80,21 +80,23 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       <p className="mt-2 leading-relaxed text-muted-foreground">{project.description}</p>
       <ul className="mt-6 flex-1 space-y-2 text-sm">
         {project.highlights.map((h) => (
-          <li key={h} className="flex items-center gap-2">
-            <span aria-hidden="true" className="size-1.5 rounded-full bg-primary" />
+          <li key={h} className="flex items-start gap-2">
+            <span aria-hidden="true" className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
             {h}
           </li>
         ))}
       </ul>
+      <Button asChild variant="outline" className="mt-8 h-auto w-fit rounded-full px-5 py-2.5 font-semibold transition-transform active:scale-95">
       <a
-        href={url}
+        href={project.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-8 inline-flex w-fit items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold transition-transform hover:border-primary hover:text-primary active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        aria-label={`Ver site de ${project.name} (abre em nova aba)`}
       >
-        Quero uma assim
+        Ver site
         <ArrowRight aria-hidden="true" className="size-4" />
       </a>
+      </Button>
     </article>
   );
 }

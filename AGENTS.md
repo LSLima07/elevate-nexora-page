@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Keep conversion Hero UI in its component and segment data/WhatsApp context in a browser-safe helper; this keeps the home composition stable and business mappings independently testable.
+- Portfolio cards link directly to the live external storefront in a new tab; local demo routes and their exclusive media are removed to avoid maintaining duplicate storefronts.

@@ -1,6 +1,7 @@
 import { Check, MessageCircle } from "lucide-react";
 import { PLANS, formatBRL, getPlanWhatsappUrl } from "@/lib/plans";
 import { useReveal } from "@/hooks/use-reveal";
+import { Button } from "@/components/ui/button";
 
 export function Pricing() {
   const { ref, visible } = useReveal<HTMLDivElement>();
@@ -16,14 +17,14 @@ export function Pricing() {
             Uma taxa de criação e uma mensalidade que cobre hospedagem, suporte e manutenção.
           </p>
         </div>
-        <div ref={ref} className="mt-12 grid gap-6 md:grid-cols-3">
+        <div ref={ref} className="mt-12 grid gap-8 lg:grid-cols-3">
           {PLANS.map((plan, i) => (
             <article
               key={plan.id}
               aria-labelledby={`plano-${plan.id}`}
               style={{ transitionDelay: `${i * 120}ms` }}
-              className={`reveal ${visible ? "reveal-in" : ""} relative flex flex-col rounded-2xl border bg-card p-7 ${
-                plan.highlight ? "border-primary shadow-[0_20px_60px_-30px_rgba(11,19,43,0.12)]" : "border-border"
+              className={`reveal ${visible ? "reveal-in" : ""} relative flex min-w-0 flex-col rounded-2xl border bg-card p-6 sm:p-7 ${
+                plan.highlight ? "border-primary shadow-soft" : "border-border"
               }`}
             >
               {plan.highlight && (
@@ -33,7 +34,7 @@ export function Pricing() {
               )}
               <h3 id={`plano-${plan.id}`} className="font-display text-xl font-bold">{plan.name}</h3>
               <p className="mt-1 text-sm text-muted-foreground">{plan.forWho}</p>
-              <p className="mt-6">
+              <p className="mt-6 flex flex-wrap items-baseline gap-x-1">
                 <span className="font-display text-4xl font-extrabold">{formatBRL(plan.monthly)}</span>
                 <span className="text-muted-foreground">/mês</span>
               </p>
@@ -46,17 +47,16 @@ export function Pricing() {
                   </li>
                 ))}
               </ul>
+              <Button asChild variant={plan.highlight ? "default" : "outline"} className="mt-8 h-auto min-h-12 w-full whitespace-normal rounded-full px-4 py-3 text-sm font-semibold transition-transform active:scale-95">
               <a
                 href={getPlanWhatsappUrl(plan)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
-                  plan.highlight ? "bg-primary text-primary-foreground hover:brightness-110" : "border border-border hover:border-primary hover:text-primary"
-                }`}
               >
                 <MessageCircle aria-hidden="true" className="size-4" />
                 Quero o plano {plan.name}
               </a>
+              </Button>
             </article>
           ))}
         </div>

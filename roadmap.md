@@ -1,4 +1,5 @@
-# Hero de conversão NEXORA
-- [x] Substituir Hero com seletor acessível e CTA contextual.
-- [x] Validar seleção, WhatsApp e layout mobile/desktop.
-- [x] Entregar código completo em artefato.
+# Ajustes finais Klique
+- [x] Atualizar quatro nichos, slogan e alinhamento do logo.
+- [x] Aplicar itens reais e links externos dos cases.
+- [x] Remover as três demos antigas e suas imagens exclusivas.
+- [x] Validar seletor, links, comparação, planos e rodapé em mobile e desktop.

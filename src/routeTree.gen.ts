@@ -11,9 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as DemoConceitoMoveisRouteImport } from './routes/demo.conceito-moveis'
-import { Route as DemoGinezAutopecasRouteImport } from './routes/demo.ginez-autopecas'
-import { Route as DemoLojaDoBoyRouteImport } from './routes/demo.loja-do-boy'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -25,74 +22,31 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DemoConceitoMoveisRoute = DemoConceitoMoveisRouteImport.update({
-  id: '/demo/conceito-moveis',
-  path: '/demo/conceito-moveis',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoGinezAutopecasRoute = DemoGinezAutopecasRouteImport.update({
-  id: '/demo/ginez-autopecas',
-  path: '/demo/ginez-autopecas',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoLojaDoBoyRoute = DemoLojaDoBoyRouteImport.update({
-  id: '/demo/loja-do-boy',
-  path: '/demo/loja-do-boy',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/demo/conceito-moveis': typeof DemoConceitoMoveisRoute
-  '/demo/ginez-autopecas': typeof DemoGinezAutopecasRoute
-  '/demo/loja-do-boy': typeof DemoLojaDoBoyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/demo/conceito-moveis': typeof DemoConceitoMoveisRoute
-  '/demo/ginez-autopecas': typeof DemoGinezAutopecasRoute
-  '/demo/loja-do-boy': typeof DemoLojaDoBoyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/demo/conceito-moveis': typeof DemoConceitoMoveisRoute
-  '/demo/ginez-autopecas': typeof DemoGinezAutopecasRoute
-  '/demo/loja-do-boy': typeof DemoLojaDoBoyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/sitemap.xml'
-    | '/demo/conceito-moveis'
-    | '/demo/ginez-autopecas'
-    | '/demo/loja-do-boy'
+  fullPaths: '/' | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/sitemap.xml'
-    | '/demo/conceito-moveis'
-    | '/demo/ginez-autopecas'
-    | '/demo/loja-do-boy'
-  id:
-    | '__root__'
-    | '/'
-    | '/sitemap.xml'
-    | '/demo/conceito-moveis'
-    | '/demo/ginez-autopecas'
-    | '/demo/loja-do-boy'
+  to: '/' | '/sitemap.xml'
+  id: '__root__' | '/' | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  DemoConceitoMoveisRoute: typeof DemoConceitoMoveisRoute
-  DemoGinezAutopecasRoute: typeof DemoGinezAutopecasRoute
-  DemoLojaDoBoyRoute: typeof DemoLojaDoBoyRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -111,36 +65,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/demo/conceito-moveis': {
-      id: '/demo/conceito-moveis'
-      path: '/demo/conceito-moveis'
-      fullPath: '/demo/conceito-moveis'
-      preLoaderRoute: typeof DemoConceitoMoveisRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/ginez-autopecas': {
-      id: '/demo/ginez-autopecas'
-      path: '/demo/ginez-autopecas'
-      fullPath: '/demo/ginez-autopecas'
-      preLoaderRoute: typeof DemoGinezAutopecasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/loja-do-boy': {
-      id: '/demo/loja-do-boy'
-      path: '/demo/loja-do-boy'
-      fullPath: '/demo/loja-do-boy'
-      preLoaderRoute: typeof DemoLojaDoBoyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  DemoConceitoMoveisRoute: DemoConceitoMoveisRoute,
-  DemoGinezAutopecasRoute: DemoGinezAutopecasRoute,
-  DemoLojaDoBoyRoute: DemoLojaDoBoyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

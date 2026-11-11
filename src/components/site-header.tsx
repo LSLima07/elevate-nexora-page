@@ -1,11 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { WHATSAPP_QUOTE_URL } from "@/lib/whatsapp";
+import { Button } from "@/components/ui/button";
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-foreground/5 bg-background/85 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link to="/" className="flex items-center font-logo text-xl font-bold tracking-tight">
+      <div className="mx-auto grid h-16 max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 sm:flex sm:justify-between sm:px-6">
+        <Link to="/" aria-label="Klique — início" className="min-w-0 whitespace-nowrap font-logo text-xl font-bold leading-none tracking-normal">
           <span className="text-foreground">Kli</span><span className="text-primary">que</span>
         </Link>
 
@@ -32,14 +33,15 @@ export function SiteHeader() {
           </a>
         </nav>
 
+        <Button asChild className="h-auto shrink-0 rounded-full px-4 py-2 text-xs font-semibold shadow-coral transition-transform active:scale-95 sm:text-sm">
         <a
           href={WHATSAPP_QUOTE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-coral transition-transform hover:brightness-105 active:scale-95"
         >
           Falar com Consultor
         </a>
+        </Button>
       </div>
     </header>
   );
