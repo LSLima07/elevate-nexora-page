@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { Check, X } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
+import { Button } from "@/components/ui/button";
 
 const before = [
   "Responde a mesma pergunta de preço dezenas de vezes por dia",
@@ -61,7 +62,7 @@ export function BeforeAfter() {
           </span>
           <h2
             id="ba-title"
-            className="mt-6 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-foreground md:text-5xl"
+            className="mt-6 text-balance font-display text-3xl font-extrabold leading-tight tracking-normal text-foreground sm:text-4xl md:text-5xl"
           >
             Seu dia sem e com a Klique:{" "}
             <span className="text-primary">
@@ -81,10 +82,11 @@ export function BeforeAfter() {
           <div
             role="tablist"
             aria-label="Comparar cenários"
-            className="mx-auto flex w-fit rounded-full border border-border bg-surface p-1"
+            className="mx-auto grid w-full max-w-md grid-cols-2 rounded-full border border-border bg-surface p-1"
           >
             {modes.map((key) => (
-              <button
+              <Button
+                variant="ghost"
                 key={key}
                 ref={(el) => {
                   tabRefs.current[key] = el;
@@ -102,7 +104,7 @@ export function BeforeAfter() {
                 tabIndex={mode === key ? 0 : -1}
                 onKeyDown={onTabKeyDown}
                 onClick={() => selectMode(key)}
-                className={`min-h-11 rounded-full px-5 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${
+                className={`h-auto min-h-12 min-w-0 whitespace-normal rounded-full px-3 py-2 text-xs font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring sm:text-sm ${
                   mode === key
                     ? key === "antes"
                       ? "bg-foreground/10 text-foreground"
@@ -111,7 +113,7 @@ export function BeforeAfter() {
                 }`}
               >
                 {key === "antes" ? "Sem presença digital" : "Com a Klique"}
-              </button>
+              </Button>
             ))}
           </div>
 

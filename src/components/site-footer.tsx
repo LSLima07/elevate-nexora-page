@@ -24,7 +24,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-3">
           {/* Coluna 1 — Marca */}
-          <div className="space-y-4">
+          <div className="min-w-0 space-y-4">
             <div className="flex items-center font-logo text-2xl font-bold tracking-tight">
               <span className="text-foreground">Klique</span>
               <span className="ml-0.5 text-cyan">.</span>
@@ -39,7 +39,7 @@ export function SiteFooter() {
           </div>
 
           {/* Coluna 2 — Links */}
-          <div className="space-y-4">
+          <div className="min-w-0 space-y-4">
             <h3 className="font-display text-sm font-semibold uppercase tracking-[0.18em] text-foreground/80">
               Navegação
             </h3>
@@ -58,15 +58,15 @@ export function SiteFooter() {
           </div>
 
           {/* Coluna 3 — Contato */}
-          <div className="space-y-4">
+          <div className="min-w-0 space-y-4">
             <h3 className="font-display text-sm font-semibold uppercase tracking-[0.18em] text-foreground/80">
               Contato
             </h3>
             <a
               href="mailto:contato@nexora.com.br"
-              className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="group inline-flex max-w-full items-center gap-2 break-all text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
-              <Mail className="h-4 w-4 text-cyan" />
+              <Mail className="h-4 w-4 shrink-0 text-cyan" />
               contato@nexora.com.br
             </a>
             <div>
@@ -100,7 +100,7 @@ export function SiteFooter() {
           <p className="text-xs text-muted-foreground/70">
             Feito com cuidado para negócios que querem crescer.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="grid w-full grid-cols-2 items-center gap-4 sm:flex sm:w-auto sm:gap-6">
             <a
               href="#"
               className="text-xs text-muted-foreground transition-colors hover:text-foreground"
@@ -110,7 +110,7 @@ export function SiteFooter() {
             <button
               type="button"
               onClick={() => setPrivacyOpen(true)}
-              className="text-xs text-muted-foreground transition-colors hover:text-cyan"
+              className="text-left text-xs text-muted-foreground transition-colors hover:text-cyan"
             >
               Política de Privacidade
             </button>
