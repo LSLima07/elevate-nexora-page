@@ -5,7 +5,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-foreground/5 bg-background/85 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link to="/" className="flex items-center gap-1 font-logo text-xl font-bold tracking-tight">
+        <Link to="/" className="flex items-center font-logo text-xl font-bold tracking-tight">
           <span className="text-foreground">Kli</span><span className="text-primary">que</span>
         </Link>
 
