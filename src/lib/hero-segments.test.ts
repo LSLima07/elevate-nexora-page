@@ -4,10 +4,9 @@ import { getHeroWhatsappUrl } from "./hero-segments";
 
 describe("Hero WhatsApp segment context", () => {
   for (const [id, label] of [
-    ["bebidas", "Adega & Bebidas"],
-    ["autopecas", "Autopeças & Oficina"],
-    ["alimentacao", "Alimentação & Açaí"],
-    ["servicos", "Serviços Locais"],
+    ["delivery", "Delivery & Comida"],
+    ["lojas", "Lojas & Produtos"],
+    ["servicos", "Serviços & Autônomos"],
   ] as const) {
     test(`includes ${label} in the Klique WhatsApp message`, () => {
       const url = new URL(getHeroWhatsappUrl(id));
@@ -16,19 +15,13 @@ describe("Hero WhatsApp segment context", () => {
     });
   }
 
-  test("Outro Negócio sends the universal catalog message", () => {
-    const url = new URL(getHeroWhatsappUrl("outro"));
+  test("Blogs opens WhatsApp with the personal site request", () => {
+    const url = new URL(getHeroWhatsappUrl("blogs"));
+    assert.equal(url.origin + url.pathname, "https://wa.me/5515998130853");
     assert.equal(
       url.searchParams.get("text"),
-      "Olá! Vi o site da Klique, tenho uma [Minha Loja] e quero criar meu catálogo digital automatizado no WhatsApp. Como funciona?",
+      "Olá Klique! Quero criar um blog ou página pessoal profissional com vocês.",
     );
   });
 
-  test("Outro Negócio replaces [Minha Loja] with the typed store type", () => {
-    const url = new URL(getHeroWhatsappUrl("outro", "  loja de   roupas "));
-    assert.equal(
-      url.searchParams.get("text"),
-      "Olá! Vi o site da Klique, tenho uma loja de roupas e quero criar meu catálogo digital automatizado no WhatsApp. Como funciona?",
-    );
-  });
 });

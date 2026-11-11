@@ -37,7 +37,7 @@ export function NicheQuickSelector({ selectedSegment, onSelect, previewId }: Nic
               aria-pressed={selected}
               aria-controls={previewId}
               onClick={() => handleSelect(segment.id)}
-              className="h-auto min-h-12 min-w-0 gap-1.5 rounded-2xl bg-background px-3 py-3 text-xs text-foreground shadow-none transition-transform duration-150 active:scale-95 motion-reduce:active:scale-100 hover:border-primary/60 hover:bg-primary/10 hover:text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background aria-pressed:border-primary aria-pressed:bg-primary/10 aria-pressed:text-primary sm:text-sm border-border"}
+              className="h-auto min-h-12 min-w-0 gap-1.5 rounded-2xl border-border bg-background px-3 py-3 text-xs text-foreground shadow-none transition-transform duration-150 active:scale-95 motion-reduce:active:scale-100 hover:border-primary/60 hover:bg-primary/10 hover:text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background aria-pressed:border-primary aria-pressed:bg-primary/10 aria-pressed:text-primary sm:text-sm"
             >
               <Check aria-hidden="true" className={selected ? "size-4" : "invisible size-4"} />
               <span className="whitespace-normal text-left leading-snug">{segment.label}</span>
