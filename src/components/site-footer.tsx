@@ -21,7 +21,7 @@ export function SiteFooter() {
       id="contato"
       className="relative border-t border-border bg-surface"
     >
-      <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+      <div className="mx-auto max-w-6xl px-6 pt-16 pb-28 md:py-20">
         <div className="grid gap-12 md:grid-cols-3">
           {/* Coluna 1 — Marca */}
           <div className="min-w-0 space-y-4">
