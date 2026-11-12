@@ -12,6 +12,7 @@ type Project = {
   description: string;
   highlights: string[];
   url?: string;
+  logoUrl?: string;
 };
 
 const projects: Project[] = [
@@ -23,7 +24,8 @@ const projects: Project[] = [
     description:
       "Modelo Delivery: Cardápio rápido, cálculo de adicionais e envio direto no WhatsApp.",
     highlights: ["Escolha rápida no cardápio", "Adicionais calculados automaticamente", "Pedido enviado ao WhatsApp"],
-    url: "https://vercel.app",
+    url: "https://ultra-shake-a-a.vercel.app",
+    logoUrl: undefined,
   },
   {
     name: "Brinquedos & Cia",
@@ -34,6 +36,7 @@ const projects: Project[] = [
       "Modelo Catálogo: Vitrine de 23 produtos com busca instantânea, filtros por idade e aviso de esgotado.",
     highlights: ["Busca instantânea entre 23 produtos", "Filtros por faixa etária", "Aviso de produtos esgotados"],
     url: "https://brinquedos-cia.vercel.app",
+    logoUrl: undefined,
   },
   {
     name: "BioViva",
@@ -42,6 +45,8 @@ const projects: Project[] = [
     icon: Leaf,
     description: "Plataforma Educacional: Projeto comunitário interativo com ranking, quizzes e acessibilidade.",
     highlights: ["Quizzes interativos", "Ranking da comunidade", "Recursos de acessibilidade"],
+    url: "https://bioviva.vercel.app",
+    logoUrl: undefined,
   },
   {
     name: "Confeitaria Artesanal",
@@ -50,6 +55,8 @@ const projects: Project[] = [
     icon: CakeSlice,
     description: "Modelo Encomendas: Vitrine visual de doces e bolos caseiros feita sob medida para pedidos rápidos.",
     highlights: ["Doces e bolos caseiros", "Vitrine visual sob medida", "Encomendas rápidas"],
+    url: "https://marina-vit-ria-confeitaria.vercel.app/",
+    logoUrl: undefined,
   },
 ];
 
@@ -85,15 +92,21 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       style={{ transitionDelay: visible ? `${index * 140}ms` : "0ms" }}
       className={`reveal ${visible ? "reveal-in" : ""} flex flex-col rounded-3xl border border-border bg-card p-8 shadow-soft transition-transform duration-300 hover:-translate-y-1`}
     >
-      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
-        <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-accent text-primary">
-          <Icon aria-hidden="true" className="size-6" />
-        </span>
+      <div className="flex justify-end">
         <span className="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground">
           {project.niche} • {project.city}
         </span>
       </div>
-      <h3 className="mt-6 font-display text-2xl font-bold">{project.name}</h3>
+      <div className="mt-6 flex items-center gap-3">
+        <span className="grid size-10 shrink-0 place-items-center overflow-hidden rounded-xl border border-border bg-surface p-1 text-primary">
+          {project.logoUrl ? (
+            <img src={project.logoUrl} alt="" width={32} height={32} loading="lazy" className="size-8 object-contain" />
+          ) : (
+            <Icon aria-hidden="true" className="size-6" />
+          )}
+        </span>
+        <h3 className="min-w-0 font-display text-2xl font-bold">{project.name}</h3>
+      </div>
       <p className="mt-2 leading-relaxed text-muted-foreground">{project.description}</p>
       <ul className="mt-6 flex-1 space-y-2 text-sm">
         {project.highlights.map((h) => (

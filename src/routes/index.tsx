@@ -8,15 +8,16 @@ import { Pricing } from "@/components/pricing";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsappFloat } from "@/components/whatsapp-float";
 
-const SITE_URL = "https://id-preview--9c6b63c8-3813-460c-aece-353c4494c55b.lovable.app";
+const SITE_URL = "https://klique-oficial-website.lovable.app";
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Klique | Vitrines, Sites Profissionais e Blogs em Angatuba" },
+      { title: "Klique • Vitrines Digitais e Sites" },
       { name: "description", content: "Teste sua vitrine virtual com a Klique. Vitrines a partir de R$ 150 e sites profissionais e blogs por R$ 250, com taxa única e hospedagem inclusa." },
-      { property: "og:title", content: "Klique | Vitrines, Sites Profissionais e Blogs em Angatuba" },
+      { property: "og:title", content: "Klique • Vitrines Digitais e Sites" },
+      { name: "twitter:title", content: "Klique • Vitrines Digitais e Sites" },
       { property: "og:description", content: "Seu negócio no celular do cliente, a um klique de vender. Teste sua vitrine e conheça nossos projetos e preços com taxa única." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

@@ -77,7 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Klique | Desenvolvimento de Sites, Landing Pages e SEO para PMEs" },
+      { title: "Klique • Vitrines Digitais e Sites" },
       {
         name: "description",
         content:
@@ -86,10 +86,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "keywords",
         content:
-          "criacao de sites, landing page, seo local, colocar empresa no google, agencia digital, nexora, sites para empresas",
+          "criacao de sites, vitrines digitais, landing page, seo local, colocar empresa no google, agencia digital, klique, sites para empresas",
       },
       { name: "author", content: "Klique" },
-      { property: "og:title", content: "Klique | Soluções Digitais para Pequenos e Médios Negócios" },
+      { property: "og:title", content: "Klique • Vitrines Digitais e Sites" },
       {
         property: "og:description",
         content:
@@ -97,7 +97,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Klique | Soluções Digitais para Pequenos e Médios Negócios" },
+      { name: "twitter:title", content: "Klique • Vitrines Digitais e Sites" },
       {
         name: "twitter:description",
         content:
@@ -109,8 +109,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", type: "image/png", href: "/favicon.png" },
-      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+      { rel: "icon", type: "image/png", href: "/favicon.png?v=klique" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png?v=klique" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
