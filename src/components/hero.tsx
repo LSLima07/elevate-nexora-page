@@ -4,10 +4,9 @@ import { Button } from "@/components/ui/button";
 import {
   HERO_SEGMENTS,
   getHeroPreview,
-  getHeroSegment,
-  getHeroWhatsappUrl,
   type HeroSegmentId,
 } from "@/lib/hero-segments";
+import { VitrineSimulator } from "@/components/vitrine-simulator";
 
 type NicheQuickSelectorProps = {
   selectedSegment: HeroSegmentId;
@@ -55,7 +54,6 @@ export function Hero() {
   const id = useId();
   const previewId = `${id}-preview`;
   const headingId = `${id}-heading`;
-  const segment = getHeroSegment(selectedSegment);
   const preview = getHeroPreview(selectedSegment);
 
   return (
@@ -68,7 +66,7 @@ export function Hero() {
         </h1>
 
         <p className="mt-4 max-w-2xl text-sm font-medium leading-relaxed text-muted-foreground sm:text-base">
-          Seu negócio no celular do cliente, a um clique de vender.
+          Seu negócio no celular do cliente, a um klique de vender.
         </p>
 
         <p className="mt-5 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -93,11 +91,7 @@ export function Hero() {
           </div>
         </div>
 
-        <Button asChild size="lg" className="mt-7 h-auto min-h-14 w-full max-w-sm self-center whitespace-normal rounded-full bg-primary px-6 py-4 text-base font-bold text-primary-foreground shadow-coral transition-transform active:scale-95 hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background sm:max-w-sm sm:self-center">
-          <a href={getHeroWhatsappUrl(selectedSegment)} target="_blank" rel="noopener noreferrer" aria-label={`Criar Minha Vitrine Virtual para ${segment.label} no WhatsApp (abre em nova aba)`}>
-            <span aria-hidden="true">🚀</span> Criar Minha Vitrine Virtual
-          </a>
-        </Button>
+        <VitrineSimulator segment={selectedSegment} />
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 import { Check, MessageCircle } from "lucide-react";
-import { PLANS, formatBRL, getPlanWhatsappUrl } from "@/lib/plans";
+import { PLANS, OPTIONAL_SUPPORT_MONTHLY, formatBRL, getPlanWhatsappUrl } from "@/lib/plans";
 import { useReveal } from "@/hooks/use-reveal";
 import { Button } from "@/components/ui/button";
 
@@ -9,15 +9,15 @@ export function Pricing() {
     <section id="orcamento" aria-labelledby="planos-title" className="border-t border-border bg-background py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-6">
         <div className="text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Planos mensais</span>
+          <span className="text-xs font-semibold uppercase text-primary">Taxa única</span>
           <h2 id="planos-title" className="mt-4 text-balance font-display text-3xl font-extrabold md:text-4xl">
-            Preço justo, sem surpresa. <span className="text-primary">Cancele quando quiser.</span>
+            Sua presença digital. <span className="text-primary">Sem mensalidade obrigatória.</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Uma taxa de criação e uma mensalidade que cobre hospedagem, suporte e manutenção.
+            Para o comércio local e para quem quer colocar suas ideias e serviços na internet.
           </p>
         </div>
-        <div ref={ref} className="mt-12 grid gap-8 lg:grid-cols-3">
+        <div ref={ref} className="mx-auto mt-12 grid max-w-4xl gap-8 md:grid-cols-2">
           {PLANS.map((plan, i) => (
             <article
               key={plan.id}
@@ -35,10 +35,9 @@ export function Pricing() {
               <h3 id={`plano-${plan.id}`} className="font-display text-xl font-bold">{plan.name}</h3>
               <p className="mt-1 text-sm text-muted-foreground">{plan.forWho}</p>
               <p className="mt-6 flex flex-wrap items-baseline gap-x-1">
-                <span className="font-display text-4xl font-extrabold">{formatBRL(plan.monthly)}</span>
-                <span className="text-muted-foreground">/mês</span>
+                <span className="font-display text-4xl font-extrabold">{formatBRL(plan.setup)}</span>
               </p>
-              <p className="mt-1 text-xs text-muted-foreground">+ {formatBRL(plan.setup)} de criação (uma vez)</p>
+              <p className="mt-2 text-sm text-muted-foreground">Taxa única{plan.installments ? ` ou ${plan.installments.count}x de ${formatBRL(plan.installments.amount)}` : ""}</p>
               <ul className="mt-6 flex-1 space-y-3 text-sm">
                 {plan.features.map((f) => (
                   <li key={f} className="flex gap-2">
@@ -60,6 +59,7 @@ export function Pricing() {
             </article>
           ))}
         </div>
+        <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground">🟢 Hospedagem inclusa. Suporte e alterações sob demanda ou mensalidades opcionais a partir de R$ {OPTIONAL_SUPPORT_MONTHLY}/mês.</p>
       </div>
     </section>
   );

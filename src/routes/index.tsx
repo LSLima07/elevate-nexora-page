@@ -9,27 +9,18 @@ import { SiteFooter } from "@/components/site-footer";
 import { WhatsappFloat } from "@/components/whatsapp-float";
 
 const SITE_URL = "https://id-preview--9c6b63c8-3813-460c-aece-353c4494c55b.lovable.app";
-const OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Klique | Sites de Vendas para Negócios Locais" },
-      { name: "description", content: "Vitrine virtual, Google Meu Negócio e pedidos pelo WhatsApp para MEIs e negócios locais. Conheça a Klique." },
-      { property: "og:title", content: "Klique | Sites de Vendas para Negócios Locais" },
-      { property: "og:description", content: "Vitrine virtual, presença local no Google e atendimento pelo WhatsApp para o seu comércio." },
+      { title: "Klique | Vitrines, Sites Profissionais e Blogs em Angatuba" },
+      { name: "description", content: "Teste sua vitrine virtual com a Klique. Vitrines a partir de R$ 150 e sites profissionais e blogs por R$ 250, com taxa única e hospedagem inclusa." },
+      { property: "og:title", content: "Klique | Vitrines, Sites Profissionais e Blogs em Angatuba" },
+      { property: "og:description", content: "Seu negócio no celular do cliente, a um klique de vender. Teste sua vitrine e conheça nossos projetos e preços com taxa única." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:image", content: OG_IMAGE },
-      { property: "og:image:secure_url", content: OG_IMAGE },
-      { property: "og:image:type", content: "image/png" },
-      { property: "og:image:width", content: "1200" },
-      { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "Klique — Transformamos confiança em crescimento" },
       { property: "og:url", content: SITE_URL + "/" },
-      { name: "twitter:image", content: OG_IMAGE },
-      { name: "twitter:image:alt", content: "Klique — Transformamos confiança em crescimento" },
     ],
     links: [{ rel: "canonical", href: SITE_URL + "/" }],
     scripts: [
@@ -42,7 +33,6 @@ export const Route = createFileRoute("/")({
           description:
             "Criação de sites de alta conversão, landing pages e presença no Google para comércios e empresas locais.",
           url: SITE_URL,
-          image: OG_IMAGE,
           logo: `${SITE_URL}/favicon.png`,
           areaServed: "Itapetininga, Angatuba e Região (São Paulo)",
           telephone: "+5515998130853",

@@ -1,7 +1,8 @@
-import { ArrowRight, CupSoda, Gift } from "lucide-react";
+import { ArrowRight, CupSoda, Gift, Leaf, CakeSlice, MessageCircle } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
 import { Button } from "@/components/ui/button";
+import { buildWhatsappUrl } from "@/lib/whatsapp";
 
 type Project = {
   name: string;
@@ -10,7 +11,7 @@ type Project = {
   icon: LucideIcon;
   description: string;
   highlights: string[];
-  url: string;
+  url?: string;
 };
 
 const projects: Project[] = [
@@ -20,9 +21,9 @@ const projects: Project[] = [
     city: "Angatuba",
     icon: CupSoda,
     description:
-      "Vitrine de delivery responsiva com sistema de pedidos direto para o WhatsApp.",
-    highlights: ["Cardápio enxuto de 500ml", "Endereço obrigatório no checkout", "Pagamento (Pix, Cartão e Troco)"],
-    url: "https://ultra-shake-a-a.vercel.app",
+      "Modelo Delivery: Cardápio rápido, cálculo de adicionais e envio direto no WhatsApp.",
+    highlights: ["Escolha rápida no cardápio", "Adicionais calculados automaticamente", "Pedido enviado ao WhatsApp"],
+    url: "https://vercel.app",
   },
   {
     name: "Brinquedos & Cia",
@@ -30,9 +31,25 @@ const projects: Project[] = [
     city: "Angatuba",
     icon: Gift,
     description:
-      "Catálogo dinâmico de presentes com filtros interativos por categorias.",
-    highlights: ["Grid rápido de 2 colunas", "Filtros por categoria e idade", "Aviso de produtos esgotados"],
+      "Modelo Catálogo: Vitrine de 23 produtos com busca instantânea, filtros por idade e aviso de esgotado.",
+    highlights: ["Busca instantânea entre 23 produtos", "Filtros por faixa etária", "Aviso de produtos esgotados"],
     url: "https://brinquedos-cia.vercel.app",
+  },
+  {
+    name: "BioViva",
+    niche: "Educação",
+    city: "Angatuba",
+    icon: Leaf,
+    description: "Plataforma Educacional: Projeto comunitário interativo com ranking, quizzes e acessibilidade.",
+    highlights: ["Quizzes interativos", "Ranking da comunidade", "Recursos de acessibilidade"],
+  },
+  {
+    name: "Confeitaria Artesanal",
+    niche: "Encomendas",
+    city: "Angatuba",
+    icon: CakeSlice,
+    description: "Modelo Encomendas: Vitrine visual de doces e bolos caseiros feita sob medida para pedidos rápidos.",
+    highlights: ["Doces e bolos caseiros", "Vitrine visual sob medida", "Encomendas rápidas"],
   },
 ];
 
@@ -43,10 +60,10 @@ export function Portfolio() {
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Casos de sucesso</span>
           <h2 id="portfolio-title" className="mt-4 text-balance font-display text-3xl font-extrabold md:text-4xl">
-            Comércios de Angatuba que já vendem pelo WhatsApp
+            Projetos reais que conectam Angatuba
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Vitrines reais, criadas para o dia a dia de quem atende no balcão.
+            Do cardápio à educação: cada projeto com o modelo certo para seu público.
           </p>
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -88,13 +105,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       </ul>
       <Button asChild variant="outline" className="mt-8 h-auto w-fit rounded-full px-5 py-2.5 font-semibold transition-transform active:scale-95">
       <a
-        href={project.url}
+        href={project.url ?? buildWhatsappUrl(`Olá, Klique! Quero conhecer o projeto ${project.name} e criar uma solução parecida.`)}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`Ver site de ${project.name} (abre em nova aba)`}
+        aria-label={`${project.url ? "Ver site de" : "Conhecer"} ${project.name} (abre em nova aba)`}
       >
-        Ver site
-        <ArrowRight aria-hidden="true" className="size-4" />
+        {project.url ? "Ver site" : "Conhecer projeto"}
+        {project.url ? <ArrowRight aria-hidden="true" className="size-4" /> : <MessageCircle aria-hidden="true" className="size-4" />}
       </a>
       </Button>
     </article>

@@ -1,13 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { WHATSAPP_QUOTE_URL } from "@/lib/whatsapp";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/klique-logo.png.asset.json";
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-foreground/5 bg-background/85 backdrop-blur-xl">
       <div className="mx-auto grid h-16 max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 sm:flex sm:justify-between sm:px-6">
         <Link to="/" aria-label="Klique — início" className="min-w-0 whitespace-nowrap font-logo text-xl font-bold leading-none tracking-normal">
-          <span className="text-foreground">Kli</span><span className="text-primary">que</span>
+          <img src={logo.url} alt="Klique" width={1280} height={1197} className="h-14 w-auto object-contain sm:h-15" />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">

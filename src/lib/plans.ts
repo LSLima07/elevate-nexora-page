@@ -1,10 +1,10 @@
 import { buildWhatsappUrl } from "@/lib/whatsapp";
 
 export type Plan = {
-  id: "vitrine" | "crescimento" | "completo";
+  id: "vitrine" | "profissional";
   name: string;
   setup: number;
-  monthly: number;
+  installments?: { count: number; amount: number };
   forWho: string;
   features: string[];
   highlight?: boolean;
@@ -14,35 +14,28 @@ export const PLANS: Plan[] = [
   {
     id: "vitrine",
     name: "Vitrine",
-    setup: 297,
-    monthly: 49.9,
-    forWho: "Para quem quer começar a aparecer na internet.",
-    features: ["Página da sua loja pronta em 5 dias", "Botão direto para o seu WhatsApp", "Hospedagem e segurança inclusas", "Site rápido no celular", "Domínio próprio (.com.br)"],
-  },
-  {
-    id: "crescimento",
-    name: "Crescimento",
-    setup: 497,
-    monthly: 89.9,
-    forWho: "Para quem quer ser achado no Google do bairro.",
-    features: ["Tudo do plano Vitrine", "Google Meu Negócio configurado", "Até 30 produtos na vitrine", "1 atualização por mês", "Aparece no mapa da sua cidade"],
+    setup: 150,
+    installments: { count: 2, amount: 75 },
+    forWho: "Delivery & Lojas",
+    features: ["Vitrine de produtos ou cardápio digital", "Pedidos direto pelo WhatsApp", "Visual adaptado ao celular", "Hospedagem inclusa"],
     highlight: true,
   },
   {
-    id: "completo",
-    name: "Completo",
-    setup: 797,
-    monthly: 149.9,
-    forWho: "Para quem quer vender todo dia pela internet.",
-    features: ["Tudo do plano Crescimento", "Produtos ilimitados", "Atualizações ilimitadas", "Relatório mensal de visitas"],
+    id: "profissional",
+    name: "Profissional & Blogs",
+    setup: 250,
+    forWho: "Sites pessoais, portfólios e blogs",
+    features: ["Página com sua identidade profissional", "Apresentação de serviços, portfólio ou artigos", "Contato direto pelo WhatsApp", "Hospedagem inclusa"],
   },
 ];
+
+export const OPTIONAL_SUPPORT_MONTHLY = 25;
 
 export const formatBRL = (v: number) =>
   v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
 export function getPlanWhatsappUrl(plan: Plan) {
   return buildWhatsappUrl(
-    `Olá! Tenho interesse no plano ${plan.name} da Klique (${formatBRL(plan.monthly)}/mês). Pode me explicar como começar?`,
+    `Olá! Tenho interesse no plano ${plan.name} da Klique (${formatBRL(plan.setup)}, taxa única${plan.installments ? ` ou ${plan.installments.count}x de ${formatBRL(plan.installments.amount)}` : ""}). Pode me explicar como começar?`,
   );
 }

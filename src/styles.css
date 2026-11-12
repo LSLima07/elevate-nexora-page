@@ -57,6 +57,8 @@
   --color-navy: var(--navy);
   --color-coral: var(--coral);
   --color-surface: var(--surface);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
   --shadow-soft: var(--shadow-soft);
   --shadow-coral: var(--shadow-coral);
   --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
@@ -71,6 +73,8 @@
   --navy: #0b132b;
   --coral: #ff5a3d;
   --surface: #f9fafb;
+  --whatsapp: #167a42;
+  --whatsapp-foreground: #ffffff;
   --midnight: #f9fafb;
   --deep-bg: #ffffff;
   --tech-blue: #0b132b;

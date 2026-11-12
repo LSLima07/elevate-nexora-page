@@ -11,3 +11,5 @@
 
 - Keep conversion Hero UI in its component and segment data/WhatsApp context in a browser-safe helper; this keeps the home composition stable and business mappings independently testable.
 - Portfolio cards link directly to the live external storefront in a new tab; local demo routes and their exclusive media are removed to avoid maintaining duplicate storefronts.
+- Keep the storefront simulator in a dedicated dialog component with browser-safe preview/contact helpers; this isolates its interactive state from the home composition and enables contact-context tests.
+- Portfolio entries without supplied storefront URLs use contextual WhatsApp inquiries instead of invented links; this keeps every visible action functional.
