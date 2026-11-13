@@ -8,6 +8,7 @@ export type Plan = {
   forWho: string;
   features: string[];
   highlight?: boolean;
+  salesCommissionPercent?: number;
 };
 
 export const PLANS: Plan[] = [
@@ -15,6 +16,7 @@ export const PLANS: Plan[] = [
     id: "vitrine",
     name: "Vitrine",
     setup: 150,
+    salesCommissionPercent: 0,
     installments: { count: 2, amount: 75 },
     forWho: "Delivery & Lojas",
     features: ["Vitrine de produtos ou cardápio digital", "Pedidos direto pelo WhatsApp", "Visual adaptado ao celular", "Hospedagem inclusa"],
@@ -30,6 +32,7 @@ export const PLANS: Plan[] = [
 ];
 
 export const OPTIONAL_SUPPORT_MONTHLY = 25;
+export const DELIVERY_MAX_DAYS = 5;
 
 export const formatBRL = (v: number) =>
   v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });

@@ -1,4 +1,7 @@
 # Expansão Klique
+- [x] Gerar favicon ICO multirresolução e manter PNG/Apple.
+- [x] Inserir Como Funciona em três passos entre Hero e portfólio.
+- [x] Destacar custo diário e ausência de taxas no Plano Vitrine; testar e verificar.
 - [x] Aplicar logo oficial e slogan.
 - [x] Criar simulador com prévia e contato contextual no WhatsApp.
 - [x] Exibir quatro cases sem inventar links ausentes.

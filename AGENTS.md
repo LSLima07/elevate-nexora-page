@@ -14,3 +14,4 @@
 - Keep the storefront simulator in a dedicated dialog component with browser-safe preview/contact helpers; this isolates its interactive state from the home composition and enables contact-context tests.
 - Portfolio entries without supplied storefront URLs use contextual WhatsApp inquiries instead of invented links; this keeps every visible action functional.
 - Each portfolio entry exposes an optional logoUrl rendered beside its title with a thematic icon fallback; this allows client logos to be replaced without changing card layout.
+- Keep the three-step process in a dedicated presentational component and commercial limits in the browser-safe plans helper so delivery and pricing rules stay independently testable.

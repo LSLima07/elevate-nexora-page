@@ -1,8 +1,20 @@
 import { describe, test } from "node:test";
 import assert from "node:assert/strict";
-import { PLANS, OPTIONAL_SUPPORT_MONTHLY, getPlanWhatsappUrl } from "./plans";
+import { PLANS, OPTIONAL_SUPPORT_MONTHLY, DELIVERY_MAX_DAYS, getPlanWhatsappUrl } from "./plans";
 
 describe("planos", () => {
+  test("criação tem prazo máximo de 5 dias", () => {
+    assert.equal(DELIVERY_MAX_DAYS, 5);
+  });
+  test("Vitrine custa menos de R$ 0,42 por dia no primeiro ano", () => {
+    const plan = PLANS.find((p) => p.id === "vitrine");
+    assert.ok(plan);
+    assert.equal(plan.setup, 150);
+    assert.ok(plan.setup / 365 < 0.42);
+  });
+  test("Vitrine não cobra taxas sobre vendas", () => {
+    assert.equal(PLANS.find((p) => p.id === "vitrine")?.salesCommissionPercent, 0);
+  });
   test("Vitrine tem taxa única de R$ 150", () => {
     assert.equal(PLANS.find((p) => p.id === "vitrine")?.setup, 150);
   });

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { Hero } from "@/components/hero";
+import { HowItWorks } from "@/components/how-it-works";
 import { Portfolio } from "@/components/portfolio";
 import { BeforeAfter } from "@/components/before-after";
 import { Faq, faqs } from "@/components/faq";
@@ -79,6 +80,7 @@ function Index() {
       <SiteHeader />
       <main id="main-content" tabIndex={-1}>
         <Hero />
+        <HowItWorks />
         <Portfolio />
         <BeforeAfter />
         <Pricing />

@@ -38,6 +38,9 @@ export function Pricing() {
                 <span className="font-display text-4xl font-extrabold">{formatBRL(plan.setup)}</span>
               </p>
               <p className="mt-2 text-sm text-muted-foreground">Taxa única{plan.installments ? ` ou ${plan.installments.count}x de ${formatBRL(plan.installments.amount)}` : ""}</p>
+              {plan.id === "vitrine" && plan.salesCommissionPercent === 0 && (
+                <p className="mt-4 text-sm font-medium leading-relaxed text-whatsapp">💡 Menos de R$ 0,42 por dia no primeiro ano • Sem taxas sobre suas vendas.</p>
+              )}
               <ul className="mt-6 flex-1 space-y-3 text-sm">
                 {plan.features.map((f) => (
                   <li key={f} className="flex gap-2">
